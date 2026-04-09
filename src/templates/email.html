@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Template</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f4f4f7;font-family:'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f7;">
+    <tr>
+      <td align="center" style="padding:40px 20px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+          <!-- Header Gradient Bar -->
+          <tr>
+            <td style="height:6px;background:linear-gradient(90deg,#4F46E5,#7C3AED,#EC4899);"></td>
+          </tr>
+
+          <!-- Body Content -->
+          <tr>
+            <td style="padding:40px 48px;">
+              <div style="color:#1e293b;font-size:16px;line-height:1.7;">
+                {{CONTENT}}
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:24px 48px;background-color:#f8fafc;border-top:1px solid #e2e8f0;">
+              <p style="margin:0;color:#94a3b8;font-size:12px;line-height:1.6;text-align:center;">
+                Sent via Automatic Email Outreach System<br/>
+                If you no longer wish to receive these emails, please reply with "unsubscribe".<br/>
+                &copy; {{YEAR}} — {{SENDER_EMAIL}}
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

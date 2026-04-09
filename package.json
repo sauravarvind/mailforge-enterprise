@@ -1,0 +1,24 @@
+{
+  "name": "automatic-email-sender-and-scraper",
+  "version": "1.0.0",
+  "description": "Automatic email outreach system — scrape websites, discover decision-makers, verify emails, sync with Google Sheets, and send via Gmail",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": ["email", "scraper", "gmail", "google-sheets", "outreach"],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "axios": "^1.7.0",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "express": "^4.21.0",
+    "googleapis": "^144.0.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.0"
+  }
+}
