@@ -1282,6 +1282,16 @@ app.delete('/api/segments/:id', (req, res) => {
   catch (err) { res.status(500).json({ success: false, error: err.message }); }
 });
 
+app.get('/api/segments/:id/contacts', (req, res) => {
+  try {
+    const segment = aiSegmentation.getSegment(req.params.id);
+    if (!segment) return res.status(404).json({ success: false, error: 'Segment not found' });
+    const allContacts = storageService.getAllContacts();
+    const segContacts = (segment.contactIds || []).map(id => allContacts.find(c => c.id === id)).filter(Boolean);
+    res.json({ success: true, data: segContacts });
+  } catch (err) { res.status(500).json({ success: false, error: err.message }); }
+});
+
 app.post('/api/segments/ai-suggest', (req, res) => {
   try {
     const contacts = storageService.getAllContacts();

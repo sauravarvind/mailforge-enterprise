@@ -40,5 +40,19 @@
     "id": "auto_1777599560126_vmi4ub",
     "createdAt": "2026-05-01T01:39:20.126Z",
     "updatedAt": "2026-05-01T01:39:20.126Z"
+  },
+  {
+    "name": "Test Workflow",
+    "triggerType": "email_opened",
+    "rules": [],
+    "actions": [
+      {
+        "type": "change_stage",
+        "stage": "qualified"
+      }
+    ],
+    "id": "auto_1777910983595_f25we9",
+    "createdAt": "2026-05-04T16:09:43.595Z",
+    "updatedAt": "2026-05-04T16:09:43.595Z"
   }
 ]

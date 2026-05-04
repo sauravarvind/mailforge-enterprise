@@ -372,7 +372,7 @@ Object.assign(App, {
       switch (b.type) {
         case 'heading': content = `<${b.level||'h2'} contenteditable="true" class="block-editable" oninput="App.updateBlockContent('${b.id}','content',this.innerHTML)">${b.content}</${b.level||'h2'}>`; break;
         case 'text': content = `<div contenteditable="true" class="block-editable block-text" oninput="App.updateBlockContent('${b.id}','content',this.innerHTML)">${b.content}</div>`; break;
-        case 'image': content = b.src ? `<img src="${b.src}" style="max-width:100%;border-radius:8px;"/>` : `<div class="block-image-placeholder" onclick="App.pickBlockImage('${b.id}')"><span>📷 Click to set image URL</span></div>`; break;
+        case 'image': content = b.src ? `<div class="block-image-preview"><img src="${b.src}" alt="${b.alt||'Image'}" style="max-width:100%;border-radius:8px;"/><button class="remove-img-btn" onclick="App.removeBlockImage('${b.id}')"><span class="material-icons-outlined" style="font-size:14px">close</span></button></div>` : `<div class="block-image-placeholder" id="imgPlaceholder_${b.id}" ondragover="event.preventDefault();this.classList.add('drag-hover')" ondragleave="this.classList.remove('drag-hover')" ondrop="App.handleBlockImageDrop(event,'${b.id}')" onclick="App.pickBlockImage('${b.id}')"><span class="material-icons-outlined" style="font-size:36px">add_photo_alternate</span><p style="margin:8px 0 0;font-weight:600">Drop image, paste, or click to upload</p><p class="img-upload-hint">Supports JPG, PNG, GIF, WebP</p><input type="file" id="imgInput_${b.id}" accept="image/*" style="display:none" onchange="App.handleBlockImageFile(event,'${b.id}')"/></div>`; break;
         case 'button': content = `<div style="text-align:center;padding:8px 0;"><a href="${b.url}" style="display:inline-block;padding:12px 32px;background:${b.color};color:white;border-radius:8px;text-decoration:none;font-weight:600;" contenteditable="true" oninput="App.updateBlockContent('${b.id}','text',this.innerText)">${this.esc(b.text)}</a><br><input type="text" class="form-input" style="margin-top:8px;font-size:0.78rem;" value="${this.esc(b.url)}" onchange="App.updateBlockContent('${b.id}','url',this.value)"/></div>`; break;
         case 'link': content = `<div><a href="${b.url}" contenteditable="true" style="color:#4F46E5;text-decoration:underline;" oninput="App.updateBlockContent('${b.id}','text',this.innerText)">${this.esc(b.text)}</a><input type="text" class="form-input" style="margin-top:6px;font-size:0.78rem;" value="${this.esc(b.url)}" onchange="App.updateBlockContent('${b.id}','url',this.value)"/></div>`; break;
         case 'svg': content = `<div class="svg-preview">${b.code}</div><textarea class="form-textarea block-code-editor" rows="3" oninput="App.updateBlockContent('${b.id}','code',this.value)">${this.esc(b.code)}</textarea>`; break;
@@ -385,7 +385,69 @@ Object.assign(App, {
     canvas.innerHTML = html; this.compileBlocksToHtml();
   },
   updateBlockContent(id, field, value) { const b = this.state.blocks.find(b => b.id === id); if (b) { b[field] = value; this.compileBlocksToHtml(); } },
-  pickBlockImage(id) { const url = prompt('Enter image URL:'); if (url) { const b = this.state.blocks.find(b => b.id === id); if (b) { b.src = url; this.renderBlocks(); } } },
+  pickBlockImage(id) { document.getElementById('imgInput_' + id)?.click(); },
+  removeBlockImage(id) { const b = this.state.blocks.find(b => b.id === id); if (b) { b.src = ''; this.renderBlocks(); } },
+  async handleBlockImageFile(e, id) {
+    const file = e.target.files?.[0]; if (!file) return;
+    await this._uploadBlockImage(file, id);
+  },
+  async handleBlockImageDrop(e, id) {
+    e.preventDefault();
+    const placeholder = document.getElementById('imgPlaceholder_' + id);
+    if (placeholder) placeholder.classList.remove('drag-hover');
+    const file = e.dataTransfer.files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      await this._uploadBlockImage(file, id);
+    } else {
+      // Try URL from dataTransfer
+      const url = e.dataTransfer.getData('text/plain');
+      if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
+        const b = this.state.blocks.find(b => b.id === id); if (b) { b.src = url; this.renderBlocks(); }
+      }
+    }
+  },
+  async _uploadBlockImage(file, id) {
+    this.toast('Uploading image...', 'info');
+    const formData = new FormData(); formData.append('image', file);
+    try {
+      const res = await (await fetch('/api/upload', { method: 'POST', body: formData })).json();
+      if (res.success && res.url) {
+        const b = this.state.blocks.find(b => b.id === id);
+        if (b) { b.src = res.url; this.renderBlocks(); this.toast('Image uploaded!', 'success'); }
+      } else {
+        // Fallback to data URL if upload fails
+        const reader = new FileReader();
+        reader.onload = (ev) => { const b = this.state.blocks.find(b => b.id === id); if (b) { b.src = ev.target.result; this.renderBlocks(); } };
+        reader.readAsDataURL(file);
+      }
+    } catch {
+      const reader = new FileReader();
+      reader.onload = (ev) => { const b = this.state.blocks.find(b => b.id === id); if (b) { b.src = ev.target.result; this.renderBlocks(); } };
+      reader.readAsDataURL(file);
+    }
+  },
+  _initComposerPasteHandler() {
+    const canvas = document.getElementById('builderCanvas');
+    if (canvas && !canvas._pasteHandlerBound) {
+      canvas._pasteHandlerBound = true;
+      document.addEventListener('paste', (e) => {
+        if (this.state.currentPage !== 'composer') return;
+        const items = e.clipboardData?.items;
+        if (!items) return;
+        for (const item of items) {
+          if (item.type.startsWith('image/')) {
+            e.preventDefault();
+            const file = item.getAsFile();
+            // Find first empty image block, or create one
+            let imgBlock = this.state.blocks.find(b => b.type === 'image' && !b.src);
+            if (!imgBlock) { this.addBlock('image'); imgBlock = this.state.blocks[this.state.blocks.length - 1]; }
+            this._uploadBlockImage(file, imgBlock.id);
+            break;
+          }
+        }
+      });
+    }
+  },
   insertVariableAtCursor(v) { const f = document.querySelector('.block-editable:focus'); if (f) document.execCommand('insertText', false, `{{${v}}}`); else this.toast('Click a text block first', 'info'); },
   insertLink() { const url = prompt('Enter URL:'); if (url) document.execCommand('createLink', false, url); },
   compileBlocksToHtml() {
@@ -406,6 +468,7 @@ Object.assign(App, {
     document.getElementById('emailBody').value = html;
   },
   async loadComposerRecipients() {
+    this._initComposerPasteHandler();
     const cid = document.getElementById('composerCampaignSelect').value, box = document.getElementById('recipientsBox');
     if (!cid) { box.innerHTML = '<span class="recipients-placeholder">Select a campaign</span>'; return; }
     const res = await this.api(`/api/contacts?campaignId=${cid}&status=verified`);
@@ -515,6 +578,33 @@ Object.assign(App, {
     this.toast(res.success ? 'Saved!' : 'Failed', res.success ? 'success' : 'error');
   },
 
+  // ─── SETTINGS TAB SWITCHING ─────────────────────────────
+  switchSettingsTab(el, tabId) {
+    document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.settings-tab-content').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    const tabContent = document.getElementById('settingsTab-' + tabId);
+    if (tabContent) tabContent.classList.add('active');
+    // Load data for the tab
+    switch (tabId) {
+      case 'channels': this.loadWhatsAppMessages(); this.loadPushStats(); this.loadPopups(); break;
+      case 'integrations': this.loadIntegrations(); break;
+      case 'sso': this.loadSSOConfig(); break;
+      case 'dedicated-ip': this.loadDedicatedIp(); break;
+    }
+  },
+  loadSettingsSubTabs() {
+    // Pre-load the currently active tab's data
+    const activeTab = document.querySelector('.settings-tab.active');
+    if (activeTab) {
+      const tabName = activeTab.textContent.trim().toLowerCase();
+      if (tabName.includes('channel')) { this.loadWhatsAppMessages(); this.loadPushStats(); this.loadPopups(); }
+      else if (tabName.includes('integration')) { this.loadIntegrations(); }
+      else if (tabName.includes('sso')) { this.loadSSOConfig(); }
+      else if (tabName.includes('dedicated')) { this.loadDedicatedIp(); }
+    }
+  },
+
   // ─── MODAL & TOAST ─────────────────────────────────────
   showModal(title, bodyHtml) { document.getElementById('modalTitle').textContent = title; document.getElementById('modalBody').innerHTML = bodyHtml; document.getElementById('modalOverlay').classList.add('active'); },
   closeModal() { document.getElementById('modalOverlay').classList.remove('active'); },
@@ -565,162 +655,249 @@ Object.assign(App, {
     }
   },
 
-  // ─── AUTOMATIONS BUILDER ────────────────────────────────
+  // ─── AUTOMATIONS BUILDER (Visual Workflow) ──────────────
   async loadAutomations() {
     const res = await this.api('/api/automations');
     const list = document.getElementById('automationsList');
+    // Hide editor when loading list
+    const editor = document.getElementById('wfEditorLayout');
+    if (editor) editor.style.display = 'none';
+    const banner = document.getElementById('wfUnpublishedBanner');
+    if (banner) banner.style.display = 'none';
+    ['wfBtnGraph','wfBtnPreview','wfBtnSave'].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = 'none'; });
+    const createBtn = document.getElementById('wfBtnCreate'); if(createBtn) createBtn.style.display = '';
+    const badge = document.getElementById('wfDraftBadge'); if(badge) badge.style.display = 'none';
+    const title = document.getElementById('wfProcessTitle'); 
+    document.querySelector('.wf-process-title').textContent = 'Process';
+
     if (!res.success || !res.data.length) {
-      list.innerHTML = '<div class="empty-state"><p class="empty-title">No Workflows</p><p class="empty-text">Create one to start</p></div>';
+      list.innerHTML = '<div class="empty-state"><p class="empty-title">No Workflows</p><p class="empty-text">Create your first automation workflow</p></div>';
+      list.style.display = 'grid';
       return;
     }
     this.state.automations = res.data;
+    list.style.display = 'grid';
     list.innerHTML = res.data.map(a => `
       <div class="template-card" style="cursor:pointer;" onclick="App.openAutomation('${a.id}')">
-         <h4 style="margin:0; font-size:1rem;">${this.esc(a.name)}</h4>
-         <div style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">
-           Trigger: <strong>${a.triggerType}</strong><br/>
-           Status: <span style="color:${a.isActive ? 'var(--success)' : 'var(--gray-400)'}">${a.isActive ? 'Active' : 'Draft'}</span>
+         <div class="tpl-header"><span class="tpl-category">${a.triggerType.replace(/_/g,' ')}</span></div>
+         <h4 class="tpl-name">${this.esc(a.name)}</h4>
+         <div class="tpl-footer">
+           <span class="tpl-uses" style="color:${a.isActive ? 'var(--success)' : 'var(--text-muted)'}">${a.isActive ? '● Active' : '○ Draft'}</span>
+           <div class="tpl-actions">
+             <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();App.deleteAutomation('${a.id}')">Delete</button>
+           </div>
          </div>
       </div>
     `).join('');
   },
+
+  async deleteAutomation(id) {
+    if (!confirm('Delete this workflow?')) return;
+    await this.api(`/api/automations/${id}`, { method: 'DELETE' });
+    this.loadAutomations();
+  },
+
   showNewAutomationModal() {
     this.showModal('Create Visual Workflow', `
-      <div style="margin-bottom: 24px; text-align: center;">
-        <div style="display:inline-flex; padding:16px; border-radius:50%; background:var(--primary-light); color:var(--primary); margin-bottom:16px; box-shadow: 0 4px 12px rgba(79,70,229,0.15);">
-           <span class="material-icons-outlined" style="font-size:32px;">account_tree</span>
-        </div>
-        <p style="color:var(--text-secondary); font-size:0.9rem;">Automate your outreach and orchestrate multi-channel sequences.</p>
+      <div style="margin-bottom:24px;text-align:center;">
+        <div style="display:inline-flex;padding:16px;border-radius:50%;background:var(--primary-light);color:var(--primary);margin-bottom:16px;"><span class="material-icons-outlined" style="font-size:32px;">account_tree</span></div>
+        <p style="color:var(--text-secondary);font-size:0.9rem;">Automate outreach with visual multi-step sequences.</p>
       </div>
-      <div class="form-group">
-        <label class="form-label" style="font-size: 0.9rem; font-weight: 700;">Workflow Name <span style="color:var(--danger)">*</span></label>
-        <input type="text" class="form-input" id="newAutoName" placeholder="e.g. VIP Nurture Sequence" style="padding: 12px 16px; font-size: 1rem; border-radius: 8px;"/>
-      </div>
-      <div class="form-group" style="margin-top: 20px;">
-        <label class="form-label" style="font-size: 0.9rem; font-weight: 700;">Entry Trigger Event</label>
-        <select class="form-select" id="newAutoTrigger" style="padding: 12px 16px; font-size: 1rem; border-radius: 8px;">
-          <option value="email_opened">Email Opened</option>
-          <option value="email_clicked">Email Clicked</option>
-          <option value="intent_score_increase">Intent Score > 80</option>
-          <option value="contact_created">New Contact Created</option>
+      <div class="form-group"><label class="form-label">Workflow Name <span style="color:var(--danger)">*</span></label><input type="text" class="form-input" id="newAutoName" placeholder="e.g. VIP Nurture Sequence"/></div>
+      <div class="form-group" style="margin-top:16px;"><label class="form-label">Entry Trigger</label>
+        <select class="form-select" id="newAutoTrigger">
+          <option value="email_opened">Email Opened</option><option value="email_clicked">Email Clicked</option>
+          <option value="intent_score_increase">Intent Score > 80</option><option value="contact_created">New Contact Created</option>
         </select>
-        <div class="form-hint" style="margin-top: 8px;">This event will trigger the contact to enter the workflow.</div>
       </div>
-      <div style="margin-top: 32px;">
-        <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;font-size:1.05rem;" onclick="App.createAutomation()">Launch Builder</button>
-      </div>
+      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;margin-top:24px;" onclick="App.createAutomation()">Launch Builder</button>
     `);
   },
+
   async createAutomation() {
     const name = document.getElementById('newAutoName').value;
     const trigger = document.getElementById('newAutoTrigger').value;
-    if(!name) return this.toast('Name is required', 'warning');
-    
-    const newAuto = { name, triggerType: trigger, rules: [], actions: [{type: 'change_stage', stage: 'qualified'}] };
+    if (!name) return this.toast('Name is required', 'warning');
+    const newAuto = { name, triggerType: trigger, rules: [], actions: [{ type: 'change_stage', stage: 'qualified' }] };
     const res = await this.api('/api/automations', { method: 'POST', body: JSON.stringify(newAuto) });
-    if(res.success) {
-      this.toast('Created', 'success');
-      this.closeModal();
-      this.loadAutomations();
-      this.openAutomation(res.data.id);
-    }
+    if (res.success) { this.toast('Created!', 'success'); this.closeModal(); this.loadAutomations(); this.openAutomation(res.data.id); }
   },
+
   openAutomation(id) {
-    const auto = this.state.automations.find(a => a.id === id);
+    const auto = (this.state.automations || []).find(a => a.id === id);
     if (!auto) return;
     this.state.currentAutomation = auto;
-    const builderEl = document.getElementById('automationsBuilder');
-    const listEl = document.getElementById('automationsList');
-    if (builderEl) builderEl.style.display = 'block';
-    if (listEl) listEl.style.display = 'none';
-    const titleEl = document.getElementById('builderTitle');
-    if (titleEl) titleEl.textContent = `Workflow: ${auto.name}`;
-    this.renderBuilder();
+    this.state.selectedNodeIdx = null;
+    this._wfOpenMenu = null;
+    // Show editor, hide list
+    document.getElementById('automationsList').style.display = 'none';
+    document.getElementById('wfEditorLayout').style.display = 'grid';
+    document.getElementById('wfUnpublishedBanner').style.display = auto.isActive ? 'none' : 'flex';
+    ['wfBtnGraph','wfBtnPreview','wfBtnSave'].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = ''; });
+    document.getElementById('wfBtnCreate').style.display = 'none';
+    document.querySelector('.wf-process-title').textContent = auto.name;
+    const badge = document.getElementById('wfDraftBadge');
+    badge.style.display = '';
+    badge.textContent = auto.isActive ? 'Active' : 'Draft';
+    badge.style.background = auto.isActive ? '#D1FAE5' : '#FEF3C7';
+    badge.style.color = auto.isActive ? '#065F46' : '#92400E';
+    this.renderWfCanvas();
   },
+
   closeAutomationBuilder() {
     this.state.currentAutomation = null;
-    document.getElementById('automationsBuilder').style.display = 'none';
+    document.getElementById('wfEditorLayout').style.display = 'none';
     document.getElementById('automationsList').style.display = 'grid';
+    document.getElementById('wfUnpublishedBanner').style.display = 'none';
+    ['wfBtnGraph','wfBtnPreview','wfBtnSave'].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = 'none'; });
+    document.getElementById('wfBtnCreate').style.display = '';
+    document.getElementById('wfDraftBadge').style.display = 'none';
+    document.querySelector('.wf-process-title').textContent = 'Process';
   },
-  renderBuilder() {
+
+  renderWfCanvas() {
     const auto = this.state.currentAutomation;
-    const fb = document.getElementById('flowCanvas');
-    if (!auto) return;
-    
-    // Draw visual nodes
-    let html = `
-      <div class="flow-node trigger-node">
-         <div class="node-icon"><span class="material-icons-outlined">bolt</span></div>
-         <div class="node-content">
-            <strong>TRIGGER</strong><br/>${auto.triggerType.replace(/_/g, ' ').toUpperCase()}
-         </div>
-      </div>
-      <div class="flow-line"></div>
-    `;
-
-    if (auto.rules && auto.rules.length) {
-      html += auto.rules.map(r => `
-        <div class="flow-node rule-node">
-           <div class="node-icon"><span class="material-icons-outlined">shield</span></div>
-           <div class="node-content">
-              <strong>CONDITION</strong><br/>If ${r.field} ${r.operator} ${r.value}
-           </div>
-        </div>
-        <div class="flow-line"></div>
-      `).join('');
-    }
-
-    if (auto.actions && auto.actions.length) {
-      html += auto.actions.map(a => `
-        <div class="flow-node action-node">
-           <div class="node-icon"><span class="material-icons-outlined">track_changes</span></div>
-           <div class="node-content">
-              <strong>ACTION</strong><br/>${a.type === 'send_template' ? 'Send Template' : 'Change Stage: ' + a.stage}
-           </div>
-        </div>
-        <div class="flow-line"></div>
-      `).join('');
-    }
-
-    html += `
-       <div class="flow-node add-node" onclick="App.showAddFlowModal()">
-          <div class="node-icon">+</div>
-          <div>Add Step</div>
-       </div>
-    `;
-    
-    fb.innerHTML = html;
+    const canvas = document.getElementById('wfCanvas');
+    if (!auto || !canvas) return;
+    let html = '';
+    // Trigger node
+    html += this._wfNode('trigger', 'bolt', 'Trigger', auto.triggerType.replace(/_/g,' '), -1);
+    html += this._wfConnector(0);
+    // Rules/conditions
+    (auto.rules || []).forEach((r, i) => {
+      html += this._wfNode('condition', 'call_split', 'If / Else', `${r.field} ${r.operator} ${r.value}`, i, 'rule');
+      html += this._wfConnector(i + 1);
+    });
+    // Actions
+    const rLen = (auto.rules || []).length;
+    (auto.actions || []).forEach((a, i) => {
+      const label = a.type === 'send_template' ? 'Send Email Template' : `Change Stage → ${a.stage || 'qualified'}`;
+      html += this._wfNode('action', 'flash_on', 'Do This', label, rLen + i, 'action');
+      html += this._wfConnector(rLen + i + 1);
+    });
+    // End node
+    html += `<div class="wf-node" onclick="App.selectWfNode(-2)"><div class="wf-node-header end"><span class="material-icons-outlined">flag</span> END</div><div class="wf-node-body"><div class="wf-node-label">Workflow Complete</div></div></div>`;
+    canvas.innerHTML = html;
+    // Close any open menu on outside click
+    setTimeout(() => { document.querySelectorAll('.wf-add-menu').forEach(m => { if (this._wfOpenMenu === null) m.remove(); }); }, 0);
   },
-  showAddFlowModal() {
-    this.showModal('Add Workflow Step', `
-      <div class="form-group"><label class="form-label">Step Type</label>
-        <select class="form-select" id="flowStepType" onchange="document.getElementById('actionArgs').style.display = this.value === 'send_template' ? 'block' : 'none'">
-          <option value="change_stage">Action: Change CRM Stage -> Opportunity</option>
-          <option value="send_template">Action: Send Email Template</option>
-        </select>
-      </div>
-      <div class="form-group" id="actionArgs" style="display:none;">
-         <label class="form-label">Select Template ID</label>
-         <input type="text" class="form-input" id="flowTemplateId" placeholder="Template ID"/>
-      </div>
-      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="App.addFlowStep()">Add Step</button>
-    `);
+
+  _wfNode(type, icon, title, desc, idx, dataType) {
+    const sel = this.state.selectedNodeIdx === idx ? ' selected' : '';
+    return `<div class="wf-node${sel}" onclick="App.selectWfNode(${idx})" data-type="${dataType||type}">
+      <div class="wf-node-header ${type}"><span class="material-icons-outlined">${icon}</span> ${title}</div>
+      <div class="wf-node-body"><div class="wf-node-label">${desc}</div></div>
+    </div>`;
   },
-  addFlowStep() {
-    const type = document.getElementById('flowStepType').value;
-    if (type === 'change_stage') {
-       this.state.currentAutomation.actions.push({ type: 'change_stage', stage: 'opportunity' });
+
+  _wfConnector(insertIdx) {
+    return `<div class="wf-connector">
+      <div class="wf-connector-line"></div>
+      <div class="wf-add-btn" onclick="event.stopPropagation();App.toggleWfMenu(this,${insertIdx})">+</div>
+      <div class="wf-connector-line"></div>
+    </div>`;
+  },
+
+  toggleWfMenu(btn, insertIdx) {
+    const existing = btn.parentElement.querySelector('.wf-add-menu');
+    if (existing) { existing.remove(); this._wfOpenMenu = null; return; }
+    document.querySelectorAll('.wf-add-menu').forEach(m => m.remove());
+    const menu = document.createElement('div');
+    menu.className = 'wf-add-menu';
+    menu.innerHTML = `
+      <div class="wf-add-menu-item" onclick="App.addWfStep(${insertIdx},'action')"><span class="material-icons-outlined" style="color:var(--success)">flash_on</span> New Action</div>
+      <div class="wf-add-menu-item" onclick="App.addWfStep(${insertIdx},'condition')"><span class="material-icons-outlined" style="color:var(--warning)">call_split</span> If / Else</div>
+      <div class="wf-add-menu-item" onclick="App.addWfStep(${insertIdx},'end')"><span class="material-icons-outlined" style="color:var(--text-muted)">flag</span> End</div>
+    `;
+    btn.parentElement.appendChild(menu);
+    this._wfOpenMenu = insertIdx;
+    setTimeout(() => document.addEventListener('click', function h() { menu.remove(); document.removeEventListener('click', h); }, { once: true }), 10);
+  },
+
+  addWfStep(insertIdx, type) {
+    const auto = this.state.currentAutomation; if (!auto) return;
+    if (type === 'action') {
+      auto.actions = auto.actions || [];
+      auto.actions.push({ type: 'change_stage', stage: 'opportunity' });
+    } else if (type === 'condition') {
+      auto.rules = auto.rules || [];
+      auto.rules.push({ field: 'leadScore', operator: '>', value: '50' });
+    }
+    this._wfOpenMenu = null;
+    this.renderWfCanvas();
+  },
+
+  selectWfNode(idx) {
+    this.state.selectedNodeIdx = idx;
+    this.renderWfCanvas();
+    const auto = this.state.currentAutomation; if (!auto) return;
+    const panel = document.getElementById('wfPanelBody');
+    if (idx === -1) {
+      panel.innerHTML = `<h4 style="margin-bottom:12px">Trigger Settings</h4>
+        <div class="form-group"><label class="form-label">Trigger Event</label>
+        <select class="form-select" id="wfTriggerType" onchange="App.updateWfTrigger(this.value)">
+          <option value="email_opened" ${auto.triggerType==='email_opened'?'selected':''}>Email Opened</option>
+          <option value="email_clicked" ${auto.triggerType==='email_clicked'?'selected':''}>Email Clicked</option>
+          <option value="intent_score_increase" ${auto.triggerType==='intent_score_increase'?'selected':''}>Intent Score > 80</option>
+          <option value="contact_created" ${auto.triggerType==='contact_created'?'selected':''}>New Contact Created</option>
+        </select></div>`;
+    } else if (idx === -2) {
+      panel.innerHTML = '<h4>End Node</h4><p class="text-muted">This marks the end of the workflow. No further actions will be taken.</p>';
     } else {
-       this.state.currentAutomation.actions.push({ type: 'send_template', templateId: document.getElementById('flowTemplateId').value });
+      const rLen = (auto.rules||[]).length;
+      if (idx < rLen) {
+        const r = auto.rules[idx];
+        panel.innerHTML = `<h4 style="margin-bottom:12px">Condition</h4>
+          <div class="form-group"><label class="form-label">Field</label><input type="text" class="form-input" value="${this.esc(r.field)}" onchange="App.updateWfRule(${idx},'field',this.value)"/></div>
+          <div class="form-group"><label class="form-label">Operator</label><select class="form-select" onchange="App.updateWfRule(${idx},'operator',this.value)">
+            <option value=">" ${r.operator==='>'?'selected':''}>Greater than</option><option value="<" ${r.operator==='<'?'selected':''}>Less than</option><option value="=" ${r.operator==='='?'selected':''}>Equals</option>
+          </select></div>
+          <div class="form-group"><label class="form-label">Value</label><input type="text" class="form-input" value="${this.esc(r.value)}" onchange="App.updateWfRule(${idx},'value',this.value)"/></div>`;
+      } else {
+        const aIdx = idx - rLen;
+        const a = auto.actions[aIdx];
+        if (!a) { panel.innerHTML = '<p class="text-muted">Select a node</p>'; return; }
+        panel.innerHTML = `<h4 style="margin-bottom:12px">Action</h4>
+          <div class="form-group"><label class="form-label">Type</label>
+          <select class="form-select" onchange="App.updateWfAction(${aIdx},'type',this.value);App.selectWfNode(${idx})">
+            <option value="change_stage" ${a.type==='change_stage'?'selected':''}>Change Stage</option>
+            <option value="send_template" ${a.type==='send_template'?'selected':''}>Send Template</option>
+          </select></div>
+          ${a.type==='change_stage' ? `<div class="form-group"><label class="form-label">Stage</label>
+            <select class="form-select" onchange="App.updateWfAction(${aIdx},'stage',this.value)">
+              ${['lead','prospect','qualified','opportunity','customer','retained'].map(s=>`<option value="${s}" ${a.stage===s?'selected':''}>${s}</option>`).join('')}
+            </select></div>` : `<div class="form-group"><label class="form-label">Template ID</label>
+            <input type="text" class="form-input" value="${this.esc(a.templateId||'')}" onchange="App.updateWfAction(${aIdx},'templateId',this.value)"/></div>`}`;
+      }
     }
-    this.closeModal();
-    this.renderBuilder();
+  },
+
+  updateWfTrigger(val) { if (this.state.currentAutomation) { this.state.currentAutomation.triggerType = val; this.renderWfCanvas(); } },
+  updateWfRule(idx, field, val) { if (this.state.currentAutomation?.rules?.[idx]) { this.state.currentAutomation.rules[idx][field] = val; this.renderWfCanvas(); } },
+  updateWfAction(idx, field, val) { if (this.state.currentAutomation?.actions?.[idx]) { this.state.currentAutomation.actions[idx][field] = val; this.renderWfCanvas(); } },
+  closeWfPanel() { this.state.selectedNodeIdx = null; this.renderWfCanvas(); document.getElementById('wfPanelBody').innerHTML = '<p class="text-muted">Select a node to edit its properties</p>'; },
+  wfZoom(dir) { const c = document.getElementById('wfCanvas'); const s = parseFloat(c.style.transform?.match(/scale\(([^)]+)\)/)?.[1] || 1); c.style.transform = `scale(${Math.min(2,Math.max(0.5,s+dir*0.1))})`; },
+  refreshWorkflow() { this.renderWfCanvas(); this.toast('Refreshed', 'info'); },
+  deleteSelectedNode() {
+    const auto = this.state.currentAutomation; if (!auto || this.state.selectedNodeIdx === null) return this.toast('Select a node first','warning');
+    const idx = this.state.selectedNodeIdx;
+    if (idx === -1 || idx === -2) return this.toast('Cannot delete trigger/end','warning');
+    const rLen = (auto.rules||[]).length;
+    if (idx < rLen) { auto.rules.splice(idx,1); } else { auto.actions.splice(idx-rLen,1); }
+    this.state.selectedNodeIdx = null; this.renderWfCanvas(); this.toast('Node deleted','success');
+  },
+  previewWorkflow() { this.toast('Preview mode coming soon', 'info'); },
+  async publishWorkflow() {
+    const auto = this.state.currentAutomation; if (!auto) return;
+    auto.isActive = true;
+    const res = await this.api('/api/automations/' + auto.id, { method: 'PUT', body: JSON.stringify(auto) });
+    if (res.success) { this.toast('Published!','success'); document.getElementById('wfUnpublishedBanner').style.display = 'none';
+      const badge = document.getElementById('wfDraftBadge'); badge.textContent = 'Active'; badge.style.background = '#D1FAE5'; badge.style.color = '#065F46'; }
   },
   async saveCurrentAutomation() {
-    const auto = this.state.currentAutomation;
-    if(!auto) return;
+    const auto = this.state.currentAutomation; if (!auto) return;
     const res = await this.api('/api/automations/' + auto.id, { method: 'PUT', body: JSON.stringify(auto) });
-    if(res.success) this.toast('Workflow saved', 'success');
+    if (res.success) this.toast('Workflow saved', 'success');
   },
 
   esc(s) { if (!s) return ''; const d = document.createElement('div'); d.textContent = s; return d.innerHTML; },

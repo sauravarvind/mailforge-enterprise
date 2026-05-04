@@ -13,5 +13,20 @@
     "isActive": true,
     "expiresAt": null,
     "createdAt": "2026-05-01T01:28:03.790Z"
+  },
+  {
+    "id": "cpn_1777906988827_c44d47",
+    "code": "SAURAV2009",
+    "type": "fixed",
+    "value": 1000,
+    "minPurchase": 0,
+    "maxUses": 0,
+    "usedCount": 0,
+    "usedBy": [],
+    "campaignId": null,
+    "description": "",
+    "isActive": true,
+    "expiresAt": null,
+    "createdAt": "2026-05-04T15:03:08.830Z"
   }
 ]

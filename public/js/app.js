@@ -54,26 +54,20 @@ const App = {
       case 'automations': if (this.loadAutomations) this.loadAutomations(); break;
       case 'history': this.loadHistory(); break;
       case 'sheets': this.loadSyncSheetId(); break;
-      case 'settings': this.loadSettings(); break;
+      case 'settings': this.loadSettings(); this.loadSettingsSubTabs(); break;
       
       // New Enterprise Pages
       case 'scoring': if (this.loadScoring) this.loadScoring(); break;
       case 'segments': if (this.loadSegments) this.loadSegments(); break;
       case 'analyst': if (this.loadAnalystSuggestions) this.loadAnalystSuggestions(); break;
-      case 'whatsapp': if (this.loadWhatsAppMessages) this.loadWhatsAppMessages(); break;
-      case 'push': if (this.loadPushStats) this.loadPushStats(); break;
-        case 'popups': if (this.loadPopups) this.loadPopups(); break;
-        case 'products': if (this.loadProducts) this.loadProducts(); break;
-        case 'recommendations': if (this.loadRecommendations) this.loadRecommendations(); break;
-        case 'coupons': if (this.loadCoupons) this.loadCoupons(); break;
+      case 'products': if (this.loadProducts) this.loadProducts(); break;
+      case 'recommendations': if (this.loadRecommendations) this.loadRecommendations(); break;
+      case 'coupons': if (this.loadCoupons) this.loadCoupons(); break;
       case 'loyalty': if (this.loadLoyalty) this.loadLoyalty(); break;
       case 'wallet': if (this.loadWallet) this.loadWallet(); break;
       case 'users': if (this.loadUsers) this.loadUsers(); break;
       case 'accounts': if (this.loadAccounts) this.loadAccounts(); break;
       case 'custom-objects': if (this.loadCustomObjects) this.loadCustomObjects(); break;
-      case 'integrations': if (this.loadIntegrations) this.loadIntegrations(); break;
-      case 'sso': if (this.loadSSOConfig) this.loadSSOConfig(); break;
-      case 'dedicated-ip': if (this.loadDedicatedIp) this.loadDedicatedIp(); break;
     }
   },
 

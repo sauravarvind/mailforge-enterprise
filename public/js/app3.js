@@ -76,7 +76,8 @@ Object.assign(App, {
           <span class="badge badge-info">${s.memberCount} members</span>
         </div>
         <p>${this.esc(s.description)}</p>
-        <div style="margin-top:12px">
+        <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn btn-sm btn-primary" onclick="App.viewSegmentContacts('${s.id}','${this.esc(s.name)}')"><span class="material-icons-outlined" style="font-size:16px">people</span> View Contacts</button>
           <button class="btn btn-sm btn-danger-outline" onclick="App.deleteSegment('${s.id}')">Delete</button>
         </div>
       </div>
@@ -103,6 +104,34 @@ Object.assign(App, {
     if (!confirm('Delete this segment?')) return;
     const res = await this.api(`/api/segments/${id}`, { method: 'DELETE' });
     if (res.success) this.loadSegments();
+  },
+
+  async viewSegmentContacts(segId, segName) {
+    this.toast('Loading segment contacts...', 'info');
+    const res = await this.api(`/api/segments/${segId}/contacts`);
+    if (!res.success) { this.toast('Failed to load contacts', 'error'); return; }
+    const contacts = res.data || [];
+    let body = '';
+    if (!contacts.length) {
+      body = '<div class="empty-state"><p class="empty-title">No contacts in this segment</p><p class="empty-text">This segment has no matching contacts yet. Try running AI Suggest or adding contacts manually.</p></div>';
+    } else {
+      body = `<p style="margin-bottom:12px;color:var(--text-muted);font-size:0.85rem">${contacts.length} contact${contacts.length !== 1 ? 's' : ''} in this segment</p>
+      <div style="max-height:400px;overflow-y:auto">
+        <table class="data-table">
+          <thead><tr><th>Email</th><th>Name</th><th>Company</th><th>Stage</th><th>Score</th></tr></thead>
+          <tbody>
+            ${contacts.map(c => `<tr>
+              <td><strong>${this.esc(c.email)}</strong></td>
+              <td>${this.esc(c.name || '—')}</td>
+              <td>${this.esc(c.company || '—')}</td>
+              <td><span class="stage-chip ${c.lifecycleStage || 'lead'}">${c.lifecycleStage || 'lead'}</span></td>
+              <td><span class="score-badge" style="--sc:${c.leadScore || 0}">${c.leadScore || 0}</span></td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>`;
+    }
+    this.showModal(`Segment: ${segName}`, body);
   },
 
   showCreateSegmentModal() {

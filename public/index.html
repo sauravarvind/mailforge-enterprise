@@ -40,15 +40,6 @@
         <a href="#composer" class="nav-item" data-page="composer" id="nav-composer">
           <span class="material-icons-outlined nav-icon">edit_note</span><span class="nav-text">Email Composer</span>
         </a>
-        <a href="#whatsapp" class="nav-item" data-page="whatsapp" id="nav-whatsapp">
-          <span class="material-icons-outlined nav-icon">chat</span><span class="nav-text">WhatsApp</span>
-        </a>
-        <a href="#push" class="nav-item" data-page="push" id="nav-push">
-          <span class="material-icons-outlined nav-icon">notifications_active</span><span class="nav-text">Push Notifications</span>
-        </a>
-        <a href="#popups" class="nav-item" data-page="popups" id="nav-popups">
-          <span class="material-icons-outlined nav-icon">web_asset</span><span class="nav-text">Popups</span>
-        </a>
 
         <div class="nav-section-label"><span class="nav-label-text">Outreach</span></div>
         <a href="#scraper" class="nav-item" data-page="scraper" id="nav-scraper">
@@ -108,9 +99,6 @@
         <a href="#custom-objects" class="nav-item" data-page="custom-objects" id="nav-custom-objects">
           <span class="material-icons-outlined nav-icon">dataset</span><span class="nav-text">Custom Objects</span>
         </a>
-        <a href="#integrations" class="nav-item" data-page="integrations" id="nav-integrations">
-          <span class="material-icons-outlined nav-icon">sync_alt</span><span class="nav-text">Integrations</span>
-        </a>
         <a href="#history" class="nav-item" data-page="history" id="nav-history">
           <span class="material-icons-outlined nav-icon">schedule</span><span class="nav-text">History</span>
         </a>
@@ -124,12 +112,6 @@
         </a>
         <a href="#users" class="nav-item" data-page="users" id="nav-users">
           <span class="material-icons-outlined nav-icon">group</span><span class="nav-text">Users & Seats</span>
-        </a>
-        <a href="#sso" class="nav-item" data-page="sso" id="nav-sso">
-          <span class="material-icons-outlined nav-icon">vpn_key</span><span class="nav-text">SSO & SAML</span>
-        </a>
-        <a href="#dedicated-ip" class="nav-item" data-page="dedicated-ip" id="nav-dedicated-ip">
-          <span class="material-icons-outlined nav-icon">dns</span><span class="nav-text">Dedicated IP</span>
         </a>
         <a href="#onboarding" class="nav-item" data-page="onboarding" id="nav-onboarding">
           <span class="material-icons-outlined nav-icon">rocket_launch</span><span class="nav-text">Onboarding</span>
@@ -371,35 +353,9 @@
         </div>
         
         <div class="section-card mt-4">
-          <div class="section-card mt-4">
           <div class="section-header"><h3>Deep-Dive Timelines (Recipient Level)</h3></div>
           <div class="table-wrapper"><table class="data-table" id="deepDiveTable"><thead><tr><th>Recipient</th><th>Last Action</th><th>Open Timeline</th><th>CTR Decay</th></tr></thead><tbody id="deepDiveTableBody"></tbody></table></div>
         </div>
-      </section>
-
-      <!-- ═══ AUTOMATIONS PAGE ═══ -->
-      <section class="page" id="page-automations">
-         <div class="page-header">
-           <div><h2 class="page-title">Visual Automations</h2><p class="page-subtitle">Trigger-based follow-up sequences and pipeline management</p></div>
-           <button class="btn btn-primary" onclick="App.showNewAutomationModal()"><span class="material-icons-outlined" style="font-size:18px">add</span>Create Workflow</button>
-         </div>
-         <div class="automations-layout" style="display:grid; grid-template-columns: 300px 1fr; gap:20px;">
-           <!-- Sidebar Automations List -->
-           <div class="section-card" id="automationsListSection">
-             <div class="section-header"><h3>Active Workflows</h3></div>
-             <div id="automationsList" style="display:flex; flex-direction:column; gap:10px;">
-                <div class="table-empty"><p>Loading workflows...</p></div>
-             </div>
-           </div>
-           
-           <!-- Vertical Node Builder -->
-           <div class="section-card" id="automationBuilderBg" style="min-height:500px; background:var(--gray-50); position:relative;">
-              <div class="section-header"><h3>Workflow Builder</h3><button class="btn btn-sm btn-primary" onclick="App.saveCurrentAutomation()">Save Flow</button></div>
-              <div class="flow-builder" id="flowBuilder" style="display:flex; flex-direction:column; align-items:center; padding:20px; gap:20px;">
-                 <div class="table-empty"><p>Select or create a workflow</p></div>
-              </div>
-           </div>
-         </div>
       </section>
 
       <!-- ═══ SCRAPER PAGE ═══ -->
@@ -629,29 +585,55 @@
 
       <!-- ═══ AUTOMATIONS PAGE ═══ -->
       <section class="page" id="page-automations">
-        <div class="page-header">
-          <div><h2 class="page-title">Automations</h2><p class="page-subtitle">Build visual workflows and automated multi-channel sequences</p></div>
-          <button class="btn btn-primary" onclick="App.showNewAutomationModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> New Workflow</button>
-        </div>
-        
-        <div id="automationsBuilder" style="display:none; margin-bottom: 20px;">
-          <div class="section-card glass-card" style="padding: 24px; position: relative;">
-            <div style="display:flex; justify-content:space-between; margin-bottom: 24px;">
-              <h3 id="builderTitle" style="font-size: 1.2rem; font-weight: 800;">Workflow Builder</h3>
-              <div class="btn-group">
-                <button class="btn btn-secondary" onclick="App.closeAutomationBuilder()">Close</button>
-                <button class="btn btn-primary" onclick="App.saveCurrentAutomation()">Save Workflow</button>
-              </div>
-            </div>
-            
-            <div id="flowCanvas" style="display:flex; flex-direction:column; align-items:center; gap: 0; padding: 20px; background: var(--gray-50); border-radius: var(--radius-lg); min-height: 400px; border: 1px dashed var(--gray-300);">
-              <!-- Nodes injected here -->
-            </div>
+        <div class="wf-top-bar">
+          <div class="wf-top-left">
+            <h2 class="wf-process-title">Process</h2>
+            <span class="wf-draft-badge" id="wfDraftBadge">Draft</span>
+          </div>
+          <div class="wf-top-right">
+            <button class="btn btn-secondary btn-sm" onclick="App.closeAutomationBuilder()" id="wfBtnGraph" style="display:none"><span class="material-icons-outlined" style="font-size:16px">schema</span> Graph</button>
+            <button class="btn btn-secondary btn-sm" onclick="App.previewWorkflow()" id="wfBtnPreview" style="display:none"><span class="material-icons-outlined" style="font-size:16px">visibility</span> Preview</button>
+            <button class="btn btn-primary btn-sm" onclick="App.saveCurrentAutomation()" id="wfBtnSave" style="display:none">Save Workflow</button>
+            <button class="btn btn-primary" onclick="App.showNewAutomationModal()" id="wfBtnCreate"><span class="material-icons-outlined" style="font-size:18px">add</span> New Workflow</button>
           </div>
         </div>
-        
+
+        <!-- Unpublished banner -->
+        <div class="wf-unpublished-banner" id="wfUnpublishedBanner" style="display:none">
+          <span class="material-icons-outlined" style="font-size:16px">info</span>
+          <span>This workflow has not been published</span>
+          <button class="btn btn-sm" style="background:#1E293B;color:white;margin-left:auto;" onclick="App.publishWorkflow()">Publish workflow</button>
+        </div>
+
+        <!-- Workflow List (shown when no workflow is open) -->
         <div class="template-gallery" id="automationsList">
           <!-- Automation list injected here -->
+        </div>
+
+        <!-- Workflow Canvas + Side Panel (shown when editing) -->
+        <div class="wf-editor-layout" id="wfEditorLayout" style="display:none">
+          <div class="wf-canvas-area" id="wfCanvasArea">
+            <div class="wf-canvas" id="wfCanvas">
+              <!-- Nodes rendered here by JS -->
+            </div>
+            <div class="wf-zoom-controls">
+              <button class="wf-zoom-btn" onclick="App.wfZoom(1)"><span class="material-icons-outlined" style="font-size:18px">zoom_in</span></button>
+              <button class="wf-zoom-btn" onclick="App.wfZoom(-1)"><span class="material-icons-outlined" style="font-size:18px">zoom_out</span></button>
+            </div>
+            <div class="wf-bottom-actions">
+              <button class="btn btn-secondary btn-sm" onclick="App.refreshWorkflow()"><span class="material-icons-outlined" style="font-size:16px">refresh</span> Refresh block</button>
+              <button class="btn btn-sm" style="background:#FEE2E2;color:#DC2626;border:1px solid #FECACA" onclick="App.deleteSelectedNode()"><span class="material-icons-outlined" style="font-size:16px">delete</span> Delete block</button>
+            </div>
+          </div>
+          <div class="wf-side-panel" id="wfSidePanel">
+            <div class="wf-panel-header">
+              <button class="btn btn-ghost btn-sm" onclick="App.closeWfPanel()" style="margin-right:8px">← back</button>
+              <button class="wf-panel-close" onclick="App.closeWfPanel()"><span class="material-icons-outlined">close</span></button>
+            </div>
+            <div class="wf-panel-body" id="wfPanelBody">
+              <p class="text-muted">Select a node to edit its properties</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -673,12 +655,96 @@
 
       <!-- ═══ SETTINGS PAGE ═══ -->
       <section class="page" id="page-settings">
-        <div class="page-header"><div><h2 class="page-title">Settings</h2><p class="page-subtitle">Configure your API keys and account settings</p></div></div>
-        <div class="settings-layout">
-          <div class="section-card"><div class="section-header"><h3>Google Cloud Credentials</h3><span class="badge badge-info">Required</span></div><div class="form-group"><label class="form-label">Client ID</label><input type="text" class="form-input" id="settingClientId" placeholder="your-client-id.apps.googleusercontent.com"/></div><div class="form-group"><label class="form-label">Client Secret</label><input type="password" class="form-input" id="settingClientSecret" placeholder="GOCSPX-xxxxx"/></div><div class="form-group"><label class="form-label">Gmail Address</label><input type="email" class="form-input" id="settingGmailUser" placeholder="your-email@gmail.com"/></div></div>
-          <div class="section-card"><div class="section-header"><h3>Hunter.io API</h3><span class="badge badge-optional">Optional</span></div><div class="form-group"><label class="form-label">API Key</label><input type="password" class="form-input" id="settingHunterKey" placeholder="Your Hunter.io API key"/></div></div>
-          <div class="section-card"><div class="section-header"><h3>Email Settings</h3></div><div class="form-group"><label class="form-label">Sender Display Name</label><input type="text" class="form-input" id="settingSenderName" placeholder="e.g., Saurav"/></div><div class="form-group"><label class="form-label">Delay Between Emails (seconds)</label><input type="number" class="form-input" id="settingDelay" value="4" min="2" max="30"/></div></div>
-          <button class="btn btn-primary btn-lg" onclick="App.saveSettings()" id="btnSaveSettings">Save Settings</button>
+        <div class="page-header"><div><h2 class="page-title">Settings</h2><p class="page-subtitle">Configure your API keys, channels, integrations, and account settings</p></div></div>
+        
+        <!-- Settings Tabs -->
+        <div class="settings-tabs" id="settingsTabs">
+          <button class="settings-tab active" onclick="App.switchSettingsTab(this,'general')"><span class="material-icons-outlined" style="font-size:16px">tune</span> General</button>
+          <button class="settings-tab" onclick="App.switchSettingsTab(this,'channels')"><span class="material-icons-outlined" style="font-size:16px">cell_tower</span> Channels</button>
+          <button class="settings-tab" onclick="App.switchSettingsTab(this,'integrations')"><span class="material-icons-outlined" style="font-size:16px">sync_alt</span> Integrations</button>
+          <button class="settings-tab" onclick="App.switchSettingsTab(this,'sso')"><span class="material-icons-outlined" style="font-size:16px">vpn_key</span> SSO & SAML</button>
+          <button class="settings-tab" onclick="App.switchSettingsTab(this,'dedicated-ip')"><span class="material-icons-outlined" style="font-size:16px">dns</span> Dedicated IP</button>
+        </div>
+
+        <!-- Tab: General -->
+        <div class="settings-tab-content active" id="settingsTab-general">
+          <div class="settings-layout">
+            <div class="section-card"><div class="section-header"><h3>Google Cloud Credentials</h3><span class="badge badge-info">Required</span></div><div class="form-group"><label class="form-label">Client ID</label><input type="text" class="form-input" id="settingClientId" placeholder="your-client-id.apps.googleusercontent.com"/></div><div class="form-group"><label class="form-label">Client Secret</label><input type="password" class="form-input" id="settingClientSecret" placeholder="GOCSPX-xxxxx"/></div><div class="form-group"><label class="form-label">Gmail Address</label><input type="email" class="form-input" id="settingGmailUser" placeholder="your-email@gmail.com"/></div></div>
+            <div class="section-card"><div class="section-header"><h3>Hunter.io API</h3><span class="badge badge-optional">Optional</span></div><div class="form-group"><label class="form-label">API Key</label><input type="password" class="form-input" id="settingHunterKey" placeholder="Your Hunter.io API key"/></div></div>
+            <div class="section-card"><div class="section-header"><h3>Email Settings</h3></div><div class="form-group"><label class="form-label">Sender Display Name</label><input type="text" class="form-input" id="settingSenderName" placeholder="e.g., Saurav"/></div><div class="form-group"><label class="form-label">Delay Between Emails (seconds)</label><input type="number" class="form-input" id="settingDelay" value="4" min="2" max="30"/></div></div>
+            <button class="btn btn-primary btn-lg" onclick="App.saveSettings()" id="btnSaveSettings">Save Settings</button>
+          </div>
+        </div>
+
+        <!-- Tab: Channels -->
+        <div class="settings-tab-content" id="settingsTab-channels">
+          <!-- WhatsApp -->
+          <div class="section-card" style="margin-bottom:20px">
+            <div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:#25D366;margin-right:4px">chat</span> WhatsApp</h3></div>
+            <div class="dashboard-grid-2">
+              <div>
+                <div class="form-group"><label class="form-label">Recipient Phone</label><input type="text" class="form-input" id="waPhone" placeholder="+1234567890"/></div>
+                <div class="form-group"><label class="form-label">Message Body</label><textarea class="form-textarea" id="waBody" rows="4" placeholder="Type your WhatsApp message..."></textarea></div>
+                <button class="btn btn-primary" onclick="App.sendWhatsApp()"><span class="material-icons-outlined" style="font-size:18px">send</span>Send WhatsApp</button>
+              </div>
+              <div><div class="section-header"><h3>Message History</h3></div><div id="waMessageList" class="wa-message-list"><div class="table-empty"><p>No messages sent yet</p></div></div></div>
+            </div>
+          </div>
+          <!-- Push Notifications -->
+          <div class="section-card" style="margin-bottom:20px">
+            <div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:var(--primary);margin-right:4px">notifications_active</span> Push Notifications</h3></div>
+            <div class="dashboard-grid-2">
+              <div>
+                <div class="form-group"><label class="form-label">Title</label><input type="text" class="form-input" id="pushTitle" placeholder="Notification title"/></div>
+                <div class="form-group"><label class="form-label">Body</label><textarea class="form-textarea" id="pushBody" rows="3" placeholder="Notification message..."></textarea></div>
+                <div class="form-group"><label class="form-label">Click URL</label><input type="text" class="form-input" id="pushUrl" placeholder="https://yoursite.com/offer"/></div>
+                <div class="btn-group"><button class="btn btn-primary" onclick="App.sendWebPush()">Send Web Push</button><button class="btn btn-secondary" onclick="App.sendMobilePush()">Send Mobile Push</button></div>
+              </div>
+              <div><div class="section-header"><h3>Channel Stats</h3></div><div id="pushStats" class="bento-grid" style="grid-template-columns:1fr 1fr;margin-top:16px;"></div></div>
+            </div>
+          </div>
+          <!-- Popups -->
+          <div class="section-card">
+            <div class="section-header">
+              <h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:var(--accent);margin-right:4px">web_asset</span> Popups</h3>
+              <button class="btn btn-primary btn-sm" onclick="App.showCreatePopupModal()"><span class="material-icons-outlined" style="font-size:16px">add</span> Create Popup</button>
+            </div>
+            <div id="popupsList" class="template-gallery"></div>
+          </div>
+        </div>
+
+        <!-- Tab: Integrations -->
+        <div class="settings-tab-content" id="settingsTab-integrations">
+          <div class="section-card">
+            <div class="section-header">
+              <h3>Custom Data Integrations</h3>
+              <button class="btn btn-primary btn-sm" onclick="App.showCreateIntegrationModal()"><span class="material-icons-outlined" style="font-size:16px">add</span> Add Integration</button>
+            </div>
+            <p class="page-subtitle" style="margin-bottom:16px">Sync customer data across warehouse, POS, ERP via direct connectors or SFTP</p>
+            <div id="integrationsList" class="template-gallery"></div>
+          </div>
+        </div>
+
+        <!-- Tab: SSO -->
+        <div class="settings-tab-content" id="settingsTab-sso">
+          <div class="section-card" style="max-width:700px;">
+            <div class="section-header"><h3>SAML 2.0 Configuration</h3></div>
+            <div class="form-group"><label class="form-label">Identity Provider (IdP)</label><select class="form-select" id="ssoProvider"><option value="custom">Custom SAML</option><option value="okta">Okta</option><option value="azure">Azure AD</option><option value="google">Google Workspace</option><option value="onelogin">OneLogin</option></select></div>
+            <div class="form-group"><label class="form-label">Entity ID</label><input type="text" class="form-input" id="ssoEntityId" placeholder="https://your-idp.com/entity-id"/></div>
+            <div class="form-group"><label class="form-label">SSO Login URL</label><input type="text" class="form-input" id="ssoLoginUrl" placeholder="https://your-idp.com/sso/saml"/></div>
+            <div class="form-group"><label class="form-label">X.509 Certificate</label><textarea class="form-textarea" id="ssoCert" rows="4" placeholder="-----BEGIN CERTIFICATE-----"></textarea></div>
+            <div class="form-group"><label class="form-label">Allowed Email Domains (comma-separated)</label><input type="text" class="form-input" id="ssoDomains" placeholder="company.com, corp.com"/></div>
+            <div class="form-group"><label class="form-label">Default Role for SSO Users</label><select class="form-select" id="ssoDefaultRole"><option value="viewer">Viewer</option><option value="editor">Editor</option><option value="admin">Admin</option></select></div>
+            <button class="btn btn-primary btn-lg" onclick="App.saveSSOConfig()">Save SSO Configuration</button>
+          </div>
+        </div>
+
+        <!-- Tab: Dedicated IP -->
+        <div class="settings-tab-content" id="settingsTab-dedicated-ip">
+          <div class="dashboard-grid-2">
+            <div class="section-card"><div class="section-header"><h3>IP Configuration</h3></div><div id="dedicatedIpInfo"></div></div>
+            <div class="section-card"><div class="section-header"><h3>IP Warmup Progress</h3></div><div id="ipWarmupProgress"></div></div>
+          </div>
         </div>
       </section>
 
