@@ -1,0 +1,228 @@
+[
+  {
+    "id": "tpl_1775765006816_qhb6e2",
+    "name": "sample test 1",
+    "subject": "Ideas to elevate {{company}}'s digital presence",
+    "body": "<h2 style=\"margin:0 0 12px;color:#0F172A;\">Your Heading Here</h2><div style=\"margin:0 0 16px;line-height:1.7;color:#334155;\">I'm Saurav, a freelancer. I really love the work you are doing and the strong impact your business is making in your industry.<br>While auditing your digital presence, I have gone through your website and social media branding. I found a few places that might need some changes that could uplift your brand higher, just like your premium business deserves.<div>I provide services in graphic design, web development, UI/UX development, and a lot more. For a summary of my other works, I have recently helped similar forward-thinking brands create clean, engaging visual content that consistently drives user engagement. I am open to working with you on a contract basis to refine these assets.</div></div><hr style=\"border:none;border-top:2px solid #E2E8F0;margin:16px 0;\"/><div style=\"margin:0 0 16px;line-height:1.7;color:#334155;\"><div>Please do visit my site or my LinkedIn for further: <b><i><u>Portfolio</u></i></b> and <b><i><u>LinkedIn</u></i></b></div><div><br></div><div>Please do let me know if we could connect further.</div></div>",
+    "createdAt": "2026-04-09T20:03:26.818Z",
+    "updatedAt": "2026-04-09T20:03:26.819Z",
+    "useCount": 3,
+    "lastUsed": "2026-04-12T17:21:30.279Z"
+  },
+  {
+    "id": "tpl_default_yqgltia1",
+    "name": "Cold Outreach — SaaS",
+    "category": "outreach",
+    "tags": [
+      "cold",
+      "saas",
+      "b2b"
+    ],
+    "description": "Professional cold outreach for SaaS products",
+    "subject": "Quick question about {{company}}'s growth strategy",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>I came across {{company}} and was impressed by what you're building. We help companies like yours automate their outreach and increase conversion rates by 40%.</p><p>Would you be open to a quick 15-minute call this week to explore if we can help?</p><p>Best regards</p></div>",
+    "useCount": 3,
+    "lastUsed": "2026-04-12T17:23:37.658Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.922Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_bxjdswmp",
+    "name": "Cold Outreach — Agency",
+    "category": "outreach",
+    "tags": [
+      "cold",
+      "agency",
+      "services"
+    ],
+    "description": "Outreach template for marketing/design agencies",
+    "subject": "Collaboration idea for {{company}}",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>I've been following {{company}}'s work and love what you're doing. I specialize in helping agencies scale their client acquisition through automated outreach systems.</p><p>I'd love to share some strategies that have worked for similar agencies. Can we connect?</p><p>Cheers</p></div>",
+    "useCount": 3,
+    "lastUsed": "2026-04-12T17:21:22.174Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_64onvz26",
+    "name": "Cold Outreach — Freelancer",
+    "category": "outreach",
+    "tags": [
+      "cold",
+      "freelance",
+      "personal"
+    ],
+    "description": "Personal outreach from freelancer to potential client",
+    "subject": "{{name}}, I can help {{company}} with [service]",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hey {{name}}! 👋</p><p>I noticed {{company}} is growing fast — congrats! I'm a freelance [role] who specializes in helping companies like yours [value prop].</p><p>I recently helped a similar company achieve [specific result]. Would love to chat about doing the same for you.</p><p>— [Your Name]</p></div>",
+    "useCount": 1,
+    "lastUsed": "2026-04-12T16:50:12.920Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_itob686b",
+    "name": "Follow-up #1 (Gentle)",
+    "category": "followup",
+    "tags": [
+      "followup",
+      "gentle",
+      "first"
+    ],
+    "description": "First gentle follow-up after no response",
+    "subject": "Re: Quick question about {{company}}",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>Just wanted to bump my previous email in case it got buried. I know you're busy!</p><p>Happy to adjust my approach if the timing isn't right — just let me know.</p><p>Best</p></div>",
+    "useCount": 2,
+    "lastUsed": "2026-04-12T17:21:27.575Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_kh9jqbyh",
+    "name": "Follow-up #2 (Value Add)",
+    "category": "followup",
+    "tags": [
+      "followup",
+      "value",
+      "second"
+    ],
+    "description": "Second follow-up with added value",
+    "subject": "Thought you'd find this useful, {{name}}",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>I wanted to share a quick insight that might be relevant to {{company}}:</p><p>[Share a relevant tip, stat, or case study]</p><p>This is the kind of thing we help companies with every day. Worth a quick chat?</p></div>",
+    "useCount": 0,
+    "lastUsed": null,
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_cmn989o8",
+    "name": "Follow-up #3 (Breakup)",
+    "category": "followup",
+    "tags": [
+      "followup",
+      "breakup",
+      "last"
+    ],
+    "description": "Final breakup email — creates urgency",
+    "subject": "Closing the loop — {{company}}",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>I've reached out a couple of times and haven't heard back, so I'll assume the timing isn't right.</p><p>I'll close my file on this, but if things change in the future, my door is always open.</p><p>Wishing {{company}} continued success! 🚀</p></div>",
+    "useCount": 1,
+    "lastUsed": "2026-04-12T17:23:41.852Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_onh7j60d",
+    "name": "Partnership Proposal",
+    "category": "outreach",
+    "tags": [
+      "partnership",
+      "proposal",
+      "b2b"
+    ],
+    "description": "Formal partnership proposal",
+    "subject": "Strategic partnership — {{company}} × [Your Company]",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Dear {{name}},</p><p>I'm reaching out because I see a strong synergy between {{company}} and what we're building.</p><p>We serve a similar audience but with complementary offerings. A partnership could help both of us expand our reach significantly.</p><p>I've put together a brief one-pager on how this could work. Would you be interested in reviewing it?</p><p>Best regards</p></div>",
+    "useCount": 1,
+    "lastUsed": "2026-04-12T17:21:36.127Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_ebrg0pg0",
+    "name": "Case Study Share",
+    "category": "nurture",
+    "tags": [
+      "case-study",
+      "social-proof",
+      "nurture"
+    ],
+    "description": "Share a relevant case study to build trust",
+    "subject": "How [Client] achieved [Result] — relevant for {{company}}",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>I thought you might find this interesting — we recently helped [similar company] achieve [specific result].</p><p>The challenge was very similar to what {{company}} might be experiencing: [pain point].</p><p><a href=\"#\" style=\"color:#4F46E5;\">Read the full case study →</a></p><p>Would love to discuss how we can replicate these results for you.</p></div>",
+    "useCount": 0,
+    "lastUsed": null,
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_7gxewe0d",
+    "name": "Event Invitation",
+    "category": "nurture",
+    "tags": [
+      "event",
+      "webinar",
+      "invitation"
+    ],
+    "description": "Invite contacts to a webinar or event",
+    "subject": "You're invited: [Event Name] — {{name}}",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>We're hosting an exclusive [webinar/event] on [topic] and thought it would be perfect for someone in your role at {{company}}.</p><p>📅 Date: [Date]<br>🕐 Time: [Time]<br>📍 Where: [Link]</p><p>We'll be covering [key topics]. Spots are limited.</p><p><a href=\"#\" style=\"display:inline-block;padding:12px 32px;background:#4F46E5;color:white;border-radius:8px;text-decoration:none;font-weight:600;\">Reserve Your Spot →</a></p></div>",
+    "useCount": 0,
+    "lastUsed": null,
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_rutck7ll",
+    "name": "Re-engagement",
+    "category": "retention",
+    "tags": [
+      "re-engagement",
+      "winback",
+      "retention"
+    ],
+    "description": "Re-engage inactive contacts or churned customers",
+    "subject": "We miss you, {{name}}! Here's what's new",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>It's been a while since we connected, and a lot has changed! Here's what you've been missing:</p><ul><li>✨ [New Feature 1]</li><li>🚀 [Improvement 2]</li><li>🎁 [Special Offer]</li></ul><p>We'd love to have you back. Here's a special offer just for you:</p><p><a href=\"#\" style=\"display:inline-block;padding:12px 32px;background:#10B981;color:white;border-radius:8px;text-decoration:none;font-weight:600;\">Claim Your Offer →</a></p></div>",
+    "useCount": 1,
+    "lastUsed": "2026-04-18T17:02:48.686Z",
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_wz7hzuxc",
+    "name": "Thank You / Post-Meeting",
+    "category": "nurture",
+    "tags": [
+      "thank-you",
+      "post-meeting",
+      "followup"
+    ],
+    "description": "Follow up after a meeting or call",
+    "subject": "Great chatting, {{name}}! Next steps",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>Thank you for taking the time to chat today! I really enjoyed learning about {{company}} and the exciting things you're working on.</p><p>As discussed, here are the next steps:</p><ol><li>[Action item 1]</li><li>[Action item 2]</li><li>[Action item 3]</li></ol><p>I'll follow up by [date]. In the meantime, feel free to reach out anytime.</p><p>Looking forward to working together! 🤝</p></div>",
+    "useCount": 0,
+    "lastUsed": null,
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  },
+  {
+    "id": "tpl_default_2lhyx3qd",
+    "name": "Social Proof / Testimonial",
+    "category": "conversion",
+    "tags": [
+      "testimonial",
+      "social-proof",
+      "conversion"
+    ],
+    "description": "Use social proof to push toward conversion",
+    "subject": "What [Company] said about working with us",
+    "body": "<div style=\"line-height:1.7;color:#334155;\"><p>Hi {{name}},</p><p>Don't just take my word for it — here's what [Client Name], [Role] at [Company] had to say:</p><blockquote style=\"border-left:4px solid #4F46E5;margin:16px 0;padding:12px 20px;background:#F8FAFC;border-radius:0 8px 8px 0;font-style:italic;\">\"[Compelling testimonial quote about the results they achieved]\"</blockquote><p>{{company}} is in a similar position, and I believe we can deliver the same results for you.</p><p>Ready to get started?</p></div>",
+    "useCount": 0,
+    "lastUsed": null,
+    "isDefault": true,
+    "createdAt": "2026-04-12T16:41:34.937Z",
+    "updatedAt": "2026-04-12T16:41:34.937Z"
+  }
+]

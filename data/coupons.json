@@ -1,0 +1,17 @@
+[
+  {
+    "id": "cpn_1777598883772_580f8e",
+    "code": "SAURAV2002",
+    "type": "percentage",
+    "value": 10,
+    "minPurchase": 0,
+    "maxUses": 0,
+    "usedCount": 0,
+    "usedBy": [],
+    "campaignId": null,
+    "description": "",
+    "isActive": true,
+    "expiresAt": null,
+    "createdAt": "2026-05-01T01:28:03.790Z"
+  }
+]

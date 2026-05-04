@@ -1,0 +1,79 @@
+[
+  {
+    "id": "seg_1777598541641_878ad6",
+    "name": "Cold Contacts",
+    "description": "Contacts with zero opens and no interactions. Need re-engagement campaign.",
+    "rules": [],
+    "isAiGenerated": true,
+    "contactIds": [
+      "ct_1775765324102_hew4ey",
+      "ct_1775765324109_pa4up6",
+      "ct_1775765347030_mnx74z",
+      "ct_1775765347035_flw10z",
+      "ct_1775765359833_mlcwso",
+      "ct_1775765359836_6rz7mm",
+      "ct_1775765359840_unb5lh",
+      "ct_1775765359843_phbmck",
+      "ct_1775765359846_osf8ga",
+      "ct_1775765428629_1o8gux",
+      "ct_1775766957628_tuv58x",
+      "ct_1775791426894_0duwav",
+      "ct_1775792254322_eeuxk5",
+      "ct_1776529287178_te0x72",
+      "ct_1776531078757_0xhv7x",
+      "ct_1776531400930_jwee94",
+      "ct_1776531400933_5207kp",
+      "ct_1776531400935_ue6yb0",
+      "ct_1776531400936_35wqhm",
+      "ct_1776531430458_0j9yxr",
+      "ct_1776531430464_04lh4w",
+      "ct_1776531430466_ty67ri",
+      "ct_1776531460671_9lj3zg"
+    ],
+    "memberCount": 23,
+    "createdAt": "2026-05-01T01:22:21.641Z",
+    "updatedAt": "2026-05-01T01:22:21.641Z"
+  },
+  {
+    "id": "seg_1777598541650_4f39cf",
+    "name": "C-Suite Decision Makers",
+    "description": "Senior executives with purchasing authority.",
+    "rules": [],
+    "isAiGenerated": true,
+    "contactIds": [
+      "ct_1775765347035_flw10z",
+      "ct_1776529287178_te0x72",
+      "ct_1776531400935_ue6yb0",
+      "ct_1776531400936_35wqhm",
+      "ct_1776531430458_0j9yxr",
+      "ct_1776531430464_04lh4w",
+      "ct_1776531460671_9lj3zg"
+    ],
+    "memberCount": 7,
+    "createdAt": "2026-05-01T01:22:21.650Z",
+    "updatedAt": "2026-05-01T01:22:21.650Z"
+  },
+  {
+    "id": "seg_1777598541659_70fddb",
+    "name": "Saas Professionals",
+    "description": "Contacts from the Saas industry. Create industry-specific campaigns.",
+    "rules": [],
+    "isAiGenerated": true,
+    "contactIds": [
+      "ct_1775765313878_fdr65v",
+      "ct_1775765324102_hew4ey",
+      "ct_1775765324109_pa4up6",
+      "ct_1775765347030_mnx74z",
+      "ct_1775765347035_flw10z",
+      "ct_1775765359833_mlcwso",
+      "ct_1775765359836_6rz7mm",
+      "ct_1775765359840_unb5lh",
+      "ct_1775765359843_phbmck",
+      "ct_1775765359846_osf8ga",
+      "ct_1775765428629_1o8gux"
+    ],
+    "memberCount": 11,
+    "createdAt": "2026-05-01T01:22:21.659Z",
+    "updatedAt": "2026-05-01T01:22:21.659Z"
+  }
+]

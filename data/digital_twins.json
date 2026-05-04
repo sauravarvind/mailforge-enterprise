@@ -1,0 +1,253 @@
+[
+  {
+    "contactId": "ct_1775765313878_fdr65v",
+    "email": "hello@innovkraft.com",
+    "name": "",
+    "company": "innovkraft.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": "2026-04-12T16:50:23.893Z",
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 15,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:37.413Z"
+  },
+  {
+    "contactId": "ct_1775792254322_eeuxk5",
+    "email": "sauravparameshwaran@gmail.com",
+    "name": "",
+    "company": "",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:29.016Z"
+  },
+  {
+    "contactId": "ct_1775765359846_osf8ga",
+    "email": "anindita.sarkar@dentsu.com",
+    "name": "",
+    "company": "dentsu.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:41.384Z"
+  },
+  {
+    "contactId": "ct_1775766957628_tuv58x",
+    "email": "saurav.imagines@gmail.com",
+    "name": "",
+    "company": "",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:52.461Z"
+  },
+  {
+    "contactId": "ct_1775791426894_0duwav",
+    "email": "mehamidhun149@gmail.com",
+    "name": "",
+    "company": "",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:39.824Z"
+  },
+  {
+    "contactId": "ct_1775765359843_phbmck",
+    "email": "radhika.ramani@dentsu.com",
+    "name": "",
+    "company": "dentsu.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:31.828Z"
+  },
+  {
+    "contactId": "ct_1775765359833_mlcwso",
+    "email": "connect.india@dentsu.com",
+    "name": "",
+    "company": "dentsu.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:33.294Z"
+  },
+  {
+    "contactId": "ct_1775765324102_hew4ey",
+    "email": "info@langoor.com",
+    "name": "",
+    "company": "langoor.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:34.965Z"
+  },
+  {
+    "contactId": "ct_1775765347035_flw10z",
+    "email": "hello@fruitbowldigital.comhours",
+    "name": "",
+    "company": "fruitbowldigital.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email",
+      "linkedin"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:48.343Z"
+  },
+  {
+    "contactId": "ct_1775765324109_pa4up6",
+    "email": "atinfo@langoor.comhr",
+    "name": "",
+    "company": "langoor.com",
+    "preferredHour": 10,
+    "preferredHourLabel": "10:00 - 11:00",
+    "preferredDay": "Tuesday",
+    "estimatedTimezone": 0,
+    "optimalSendTime": "10:00 UTC",
+    "contentPreferences": [
+      "general"
+    ],
+    "engagementVelocity": "stable",
+    "totalInteractions": 0,
+    "lastInteraction": null,
+    "recommendedChannels": [
+      "email"
+    ],
+    "recommendedTone": "casual",
+    "predictedNextAction": "Likely to open first email within 48h",
+    "intentScore": 0,
+    "leadScore": 0,
+    "updatedAt": "2026-04-12T17:01:44.733Z"
+  }
+]

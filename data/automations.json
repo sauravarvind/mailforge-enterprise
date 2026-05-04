@@ -1,0 +1,44 @@
+[
+  {
+    "name": "VIP NUtrure space",
+    "triggerType": "email_opened",
+    "rules": [],
+    "actions": [
+      {
+        "type": "change_stage",
+        "stage": "qualified"
+      }
+    ],
+    "id": "auto_1777599534935_ddq0jt",
+    "createdAt": "2026-05-01T01:38:54.935Z",
+    "updatedAt": "2026-05-01T01:38:54.936Z"
+  },
+  {
+    "name": "hey",
+    "triggerType": "email_opened",
+    "rules": [],
+    "actions": [
+      {
+        "type": "change_stage",
+        "stage": "qualified"
+      }
+    ],
+    "id": "auto_1777599549108_t1ld74",
+    "createdAt": "2026-05-01T01:39:09.108Z",
+    "updatedAt": "2026-05-01T01:39:35.160Z"
+  },
+  {
+    "name": "hey",
+    "triggerType": "email_opened",
+    "rules": [],
+    "actions": [
+      {
+        "type": "change_stage",
+        "stage": "qualified"
+      }
+    ],
+    "id": "auto_1777599560126_vmi4ub",
+    "createdAt": "2026-05-01T01:39:20.126Z",
+    "updatedAt": "2026-05-01T01:39:20.126Z"
+  }
+]

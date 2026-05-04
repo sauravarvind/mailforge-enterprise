@@ -3,17 +3,36 @@ const fs = require('fs');
 const path = require('path');
 
 const TOKEN_PATH = path.join(__dirname, '..', '..', 'token.json');
+const SETTINGS_PATH = path.join(__dirname, '..', '..', 'data', 'settings.json');
 
 const SCOPES = [
   'https://www.googleapis.com/auth/spreadsheets',
   'https://www.googleapis.com/auth/gmail.send'
 ];
 
+function getCredentials() {
+  // Read from saved settings.json first, then fall back to .env
+  let settings = {};
+  try {
+    if (fs.existsSync(SETTINGS_PATH)) {
+      settings = JSON.parse(fs.readFileSync(SETTINGS_PATH, 'utf8'));
+    }
+  } catch (e) { /* ignore */ }
+
+  return {
+    clientId: settings.clientId || process.env.GOOGLE_CLIENT_ID,
+    clientSecret: settings.clientSecret || process.env.GOOGLE_CLIENT_SECRET,
+    redirectUri: process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3000/api/auth/google/callback',
+    gmailUser: settings.gmailUser || process.env.GMAIL_USER
+  };
+}
+
 function getOAuth2Client() {
+  const creds = getCredentials();
   return new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET,
-    process.env.GOOGLE_REDIRECT_URI || 'http://localhost:3000/api/auth/google/callback'
+    creds.clientId,
+    creds.clientSecret,
+    creds.redirectUri
   );
 }
 

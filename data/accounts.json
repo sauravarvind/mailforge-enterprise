@@ -1,0 +1,48 @@
+[
+  {
+    "id": "acct_master",
+    "name": "Primary Account",
+    "brand": "MailForge",
+    "isMaster": true,
+    "logo": null,
+    "color": "#4F46E5",
+    "domain": "",
+    "timezone": "UTC",
+    "industry": "",
+    "memberUserIds": [],
+    "settings": {
+      "dedicatedIp": null,
+      "senderDomain": "",
+      "replyTo": ""
+    },
+    "stats": {
+      "contacts": 0,
+      "campaigns": 0,
+      "emailsSent": 0
+    },
+    "createdAt": "2026-04-30T09:00:33.412Z"
+  },
+  {
+    "id": "acct_1777598507168_9aab1c",
+    "name": "Saurav Arvind P",
+    "brand": "Saurav Arvind P",
+    "isMaster": false,
+    "logo": null,
+    "color": "#b700db",
+    "domain": "saurav.com",
+    "timezone": "UTC",
+    "industry": "",
+    "memberUserIds": [],
+    "settings": {
+      "dedicatedIp": null,
+      "senderDomain": "saurav.com",
+      "replyTo": ""
+    },
+    "stats": {
+      "contacts": 0,
+      "campaigns": 0,
+      "emailsSent": 0
+    },
+    "createdAt": "2026-05-01T01:21:47.237Z"
+  }
+]

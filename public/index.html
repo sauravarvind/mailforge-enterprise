@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MailForge — Automatic Email Sender & Scraper</title>
-  <meta name="description" content="Scrape company emails, discover decision-makers, verify contacts, and send personalized email campaigns."/>
+  <title>MailForge — Autonomous Revenue Intelligence System</title>
+  <meta name="description" content="AI-powered email outreach system with classification, CRM, A/B testing, predictive analytics, and digital twin intelligence."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
@@ -17,51 +18,176 @@
       <div class="sidebar-header">
         <div class="brand">
           <div class="brand-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="material-icons-outlined">mail</span>
           </div>
-          <div>
+          <div class="brand-text">
             <h1 class="brand-name">MailForge</h1>
-            <span class="brand-tagline">Email Outreach AI</span>
+            <span class="brand-tagline">Revenue Intelligence</span>
           </div>
         </div>
       </div>
 
       <nav class="sidebar-nav">
+        <div class="nav-section-label"><span class="nav-label-text">Overview</span></div>
         <a href="#dashboard" class="nav-item active" data-page="dashboard" id="nav-dashboard">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <span>Dashboard</span>
+          <span class="material-icons-outlined nav-icon">dashboard</span><span class="nav-text">Dashboard</span>
         </a>
+        <a href="#analytics" class="nav-item" data-page="analytics" id="nav-analytics">
+          <span class="material-icons-outlined nav-icon">bar_chart</span><span class="nav-text">Analytics</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">Channels</span></div>
+        <a href="#composer" class="nav-item" data-page="composer" id="nav-composer">
+          <span class="material-icons-outlined nav-icon">edit_note</span><span class="nav-text">Email Composer</span>
+        </a>
+        <a href="#whatsapp" class="nav-item" data-page="whatsapp" id="nav-whatsapp">
+          <span class="material-icons-outlined nav-icon">chat</span><span class="nav-text">WhatsApp</span>
+        </a>
+        <a href="#push" class="nav-item" data-page="push" id="nav-push">
+          <span class="material-icons-outlined nav-icon">notifications_active</span><span class="nav-text">Push Notifications</span>
+        </a>
+        <a href="#popups" class="nav-item" data-page="popups" id="nav-popups">
+          <span class="material-icons-outlined nav-icon">web_asset</span><span class="nav-text">Popups</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">Outreach</span></div>
         <a href="#scraper" class="nav-item" data-page="scraper" id="nav-scraper">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>Scraper</span>
-          <span class="nav-badge" id="badge-scraper" style="display:none">0</span>
+          <span class="material-icons-outlined nav-icon">travel_explore</span><span class="nav-text">Scraper</span>
         </a>
         <a href="#contacts" class="nav-item" data-page="contacts" id="nav-contacts">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <span>Contacts</span>
+          <span class="material-icons-outlined nav-icon">people</span><span class="nav-text">Contacts</span>
           <span class="nav-badge" id="badge-contacts" style="display:none">0</span>
         </a>
-        <a href="#composer" class="nav-item" data-page="composer" id="nav-composer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="17" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="17" y1="18" x2="3" y2="18"/></svg>
-          <span>Composer</span>
+        <a href="#segments" class="nav-item" data-page="segments" id="nav-segments">
+          <span class="material-icons-outlined nav-icon">hub</span><span class="nav-text">AI Segments</span>
+        </a>
+        <a href="#templates" class="nav-item" data-page="templates" id="nav-templates">
+          <span class="material-icons-outlined nav-icon">view_quilt</span><span class="nav-text">Templates</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">Intelligence</span></div>
+        <a href="#crm" class="nav-item" data-page="crm" id="nav-crm">
+          <span class="material-icons-outlined nav-icon">layers</span><span class="nav-text">CRM Pipeline</span>
+        </a>
+        <a href="#scoring" class="nav-item" data-page="scoring" id="nav-scoring">
+          <span class="material-icons-outlined nav-icon">speed</span><span class="nav-text">Contact Scoring</span>
+        </a>
+        <a href="#abtesting" class="nav-item" data-page="abtesting" id="nav-abtesting">
+          <span class="material-icons-outlined nav-icon">science</span><span class="nav-text">A/B Testing</span>
+        </a>
+        <a href="#intelligence" class="nav-item" data-page="intelligence" id="nav-intelligence">
+          <span class="material-icons-outlined nav-icon">psychology</span><span class="nav-text">AI Intelligence</span>
+        </a>
+        <a href="#analyst" class="nav-item" data-page="analyst" id="nav-analyst">
+          <span class="material-icons-outlined nav-icon">auto_awesome</span><span class="nav-text">Aura AI Analyst</span>
+        </a>
+        <a href="#automations" class="nav-item" data-page="automations" id="nav-automations">
+          <span class="material-icons-outlined nav-icon">account_tree</span><span class="nav-text">Automations</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">E-Commerce</span></div>
+        <a href="#products" class="nav-item" data-page="products" id="nav-products">
+          <span class="material-icons-outlined nav-icon">inventory_2</span><span class="nav-text">Products</span>
+        </a>
+        <a href="#recommendations" class="nav-item" data-page="recommendations" id="nav-recommendations">
+          <span class="material-icons-outlined nav-icon">recommend</span><span class="nav-text">Recommendations</span>
+        </a>
+        <a href="#coupons" class="nav-item" data-page="coupons" id="nav-coupons">
+          <span class="material-icons-outlined nav-icon">confirmation_number</span><span class="nav-text">Coupons</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">Loyalty</span></div>
+        <a href="#loyalty" class="nav-item" data-page="loyalty" id="nav-loyalty">
+          <span class="material-icons-outlined nav-icon">stars</span><span class="nav-text">Loyalty Program</span>
+        </a>
+        <a href="#wallet" class="nav-item" data-page="wallet" id="nav-wallet">
+          <span class="material-icons-outlined nav-icon">account_balance_wallet</span><span class="nav-text">Mobile Wallet</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">Data</span></div>
+        <a href="#custom-objects" class="nav-item" data-page="custom-objects" id="nav-custom-objects">
+          <span class="material-icons-outlined nav-icon">dataset</span><span class="nav-text">Custom Objects</span>
+        </a>
+        <a href="#integrations" class="nav-item" data-page="integrations" id="nav-integrations">
+          <span class="material-icons-outlined nav-icon">sync_alt</span><span class="nav-text">Integrations</span>
+        </a>
+        <a href="#history" class="nav-item" data-page="history" id="nav-history">
+          <span class="material-icons-outlined nav-icon">schedule</span><span class="nav-text">History</span>
         </a>
         <a href="#sheets" class="nav-item" data-page="sheets" id="nav-sheets">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-          <span>Google Sheets</span>
+          <span class="material-icons-outlined nav-icon">grid_on</span><span class="nav-text">Google Sheets</span>
+        </a>
+
+        <div class="nav-section-label"><span class="nav-label-text">Enterprise</span></div>
+        <a href="#accounts" class="nav-item" data-page="accounts" id="nav-accounts">
+          <span class="material-icons-outlined nav-icon">business</span><span class="nav-text">Multi-Account</span>
+        </a>
+        <a href="#users" class="nav-item" data-page="users" id="nav-users">
+          <span class="material-icons-outlined nav-icon">group</span><span class="nav-text">Users & Seats</span>
+        </a>
+        <a href="#sso" class="nav-item" data-page="sso" id="nav-sso">
+          <span class="material-icons-outlined nav-icon">vpn_key</span><span class="nav-text">SSO & SAML</span>
+        </a>
+        <a href="#dedicated-ip" class="nav-item" data-page="dedicated-ip" id="nav-dedicated-ip">
+          <span class="material-icons-outlined nav-icon">dns</span><span class="nav-text">Dedicated IP</span>
+        </a>
+        <a href="#onboarding" class="nav-item" data-page="onboarding" id="nav-onboarding">
+          <span class="material-icons-outlined nav-icon">rocket_launch</span><span class="nav-text">Onboarding</span>
+        </a>
+        <a href="#support" class="nav-item" data-page="support" id="nav-support">
+          <span class="material-icons-outlined nav-icon">support_agent</span><span class="nav-text">Support</span>
         </a>
         <a href="#settings" class="nav-item" data-page="settings" id="nav-settings">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          <span>Settings</span>
+          <span class="material-icons-outlined nav-icon">settings</span><span class="nav-text">Settings</span>
         </a>
       </nav>
 
       <div class="sidebar-footer">
+        <div class="scraper-status-bar" id="scraperStatusBar">
+          <div class="scraper-status-dot idle" id="scraperStatusDot"></div>
+          <span class="nav-text" id="scraperStatusText">Scraper: Idle</span>
+        </div>
         <div class="auth-status" id="authStatus">
           <div class="auth-dot disconnected"></div>
-          <span>Google: Not Connected</span>
+          <span class="nav-text">Google: Not Connected</span>
         </div>
       </div>
     </aside>
+
+    <!-- ─── TOP NAVBAR ──────────────────────────────────── -->
+    <header class="top-navbar" id="topNavbar">
+      <div class="navbar-left">
+        <button class="sidebar-toggle-btn" id="sidebarToggle" onclick="App.toggleSidebar()" title="Toggle Sidebar">
+          <span class="material-icons-outlined">menu</span>
+        </button>
+        <div class="navbar-scraper-status" id="navScraperStatus">
+          <div class="scraper-status-dot idle" id="navScraperDot"></div>
+          <span id="navScraperText">Scraper: Idle</span>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <div class="navbar-search">
+          <span class="material-icons-outlined search-icon">search</span>
+          <input type="text" class="navbar-search-input" id="globalSearch" placeholder="Search contacts, campaigns..." oninput="App.globalSearch(this.value)"/>
+        </div>
+      </div>
+      <div class="navbar-right">
+        <div class="navbar-google-status" id="navGoogleStatus" title="Google Connection">
+          <span class="material-icons-outlined" id="navGoogleIcon">cloud_off</span>
+          <span class="nav-google-label" id="navGoogleLabel">Disconnected</span>
+        </div>
+        <button class="navbar-icon-btn" id="navNotifications" title="Notifications" onclick="App.showNotifications()">
+          <span class="material-icons-outlined">notifications</span>
+          <span class="notif-badge" id="notifBadge" style="display:none">0</span>
+        </button>
+        <button class="navbar-icon-btn" title="History" onclick="window.location.hash='#history'">
+          <span class="material-icons-outlined">history</span>
+        </button>
+        <button class="navbar-icon-btn" title="Settings" onclick="window.location.hash='#settings'">
+          <span class="material-icons-outlined">settings</span>
+        </button>
+      </div>
+    </header>
 
     <!-- ─── MAIN CONTENT ────────────────────────────────── -->
     <main class="main-content" id="mainContent">
@@ -70,487 +196,703 @@
       <section class="page active" id="page-dashboard">
         <div class="page-header">
           <div>
-            <h2 class="page-title">Dashboard</h2>
-            <p class="page-subtitle">Overview of your email outreach campaigns</p>
+            <h2 class="page-title">Revenue Intelligence Dashboard</h2>
+            <p class="page-subtitle">Autonomous system overview — find, nurture, convert, retain</p>
           </div>
           <button class="btn btn-primary" onclick="App.showNewCampaignModal()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="material-icons-outlined" style="font-size:18px">add</span>
             New Campaign
           </button>
         </div>
 
-        <div class="stats-grid" id="statsGrid">
-          <div class="stat-card" id="stat-campaigns">
-            <div class="stat-icon" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <div class="stat-info">
-              <span class="stat-value" data-count="0">0</span>
-              <span class="stat-label">Campaigns</span>
-            </div>
+        <!-- Bento Stats Grid -->
+        <div class="bento-grid" id="statsGrid" style="margin-top:24px;">
+          <div class="bento-card" id="stat-campaigns">
+             <div class="bento-label">Campaigns</div>
+             <div class="bento-val"><span class="stat-value" data-count="0">0</span></div>
+             <div class="bento-sub">Active outreach sequences</div>
           </div>
-          <div class="stat-card" id="stat-contacts">
-            <div class="stat-icon" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            </div>
-            <div class="stat-info">
-              <span class="stat-value" data-count="0">0</span>
-              <span class="stat-label">Total Contacts</span>
-            </div>
+          <div class="bento-card" id="stat-contacts">
+             <div class="bento-label">Total Contacts</div>
+             <div class="bento-val"><span class="stat-value" data-count="0">0</span></div>
+             <div class="bento-sub">In targeted pipeline</div>
           </div>
-          <div class="stat-card" id="stat-verified">
-            <div class="stat-icon" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            </div>
-            <div class="stat-info">
-              <span class="stat-value" data-count="0">0</span>
-              <span class="stat-label">Verified</span>
-            </div>
+          <div class="bento-card" id="stat-verified">
+             <div class="bento-label">Verified</div>
+             <div class="bento-val up"><span class="stat-value" data-count="0">0</span></div>
+             <div class="bento-sub">Scraped and valid</div>
           </div>
-          <div class="stat-card" id="stat-sent">
-            <div class="stat-icon" style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF);">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9333EA" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <div class="bento-card" id="stat-sent">
+             <div class="bento-label">Emails Sent</div>
+             <div class="bento-val"><span class="stat-value" data-count="0">0</span></div>
+             <div class="bento-sub">Delivered to inbox</div>
+          </div>
+          <div class="bento-card" id="stat-pipeline" style="background:var(--primary); color:white; border-color:var(--primary);">
+             <div class="bento-label" style="color:rgba(255,255,255,0.7);">Pipeline Value</div>
+             <div class="bento-val" style="color:white;"><span id="pipelineValue">$0</span></div>
+             <div class="bento-sub" style="color:rgba(255,255,255,0.7);">Estimated potential</div>
+          </div>
+          <div class="bento-card" id="stat-hotleads" style="background:var(--accent); color:white; border-color:var(--accent);">
+             <div class="bento-label" style="color:rgba(255,255,255,0.7);">Hot Leads</div>
+             <div class="bento-val" style="color:white;"><span class="material-icons-outlined" style="font-size:1.2rem">local_fire_department</span> <span id="hotLeadsCount">0</span></div>
+             <div class="bento-sub" style="color:rgba(255,255,255,0.7);">Score > 60</div>
+          </div>
+        </div>
+
+        <!-- Classification & Funnel Row -->
+        <div class="bento-grid-2" style="margin-top: 24px;">
+          <div class="bento-card">
+            <div class="bento-label">Email Classification</div>
+            <div class="classification-bars" id="classificationBars" style="margin-top:16px;">
+              <div class="class-bar-row"><span class="class-label" style="font-size:0.8rem;"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle;margin-right:4px">business</span> Business</span><div class="class-bar-track" style="flex:1;height:8px;background:var(--gray-100);border-radius:4px;overflow:hidden;margin:0 10px;"><div class="class-bar-fill business" id="classBar-business" style="width:0%;height:100%;background:var(--primary);"></div></div><span class="class-count" id="classCount-business" style="font-size:0.8rem;font-weight:bold;">0</span></div>
+              <div class="class-bar-row" style="margin-top:12px;"><span class="class-label" style="font-size:0.8rem;"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle;margin-right:4px">person</span> Personal</span><div class="class-bar-track" style="flex:1;height:8px;background:var(--gray-100);border-radius:4px;overflow:hidden;margin:0 10px;"><div class="class-bar-fill personal" id="classBar-personal" style="width:0%;height:100%;background:var(--accent);"></div></div><span class="class-count" id="classCount-personal" style="font-size:0.8rem;font-weight:bold;">0</span></div>
+              <div class="class-bar-row" style="margin-top:12px;"><span class="class-label" style="font-size:0.8rem;"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle;margin-right:4px">support_agent</span> Support</span><div class="class-bar-track" style="flex:1;height:8px;background:var(--gray-100);border-radius:4px;overflow:hidden;margin:0 10px;"><div class="class-bar-fill support" id="classBar-support" style="width:0%;height:100%;background:var(--warning);"></div></div><span class="class-count" id="classCount-support" style="font-size:0.8rem;font-weight:bold;">0</span></div>
+              <div class="class-bar-row" style="margin-top:12px;"><span class="class-label" style="font-size:0.8rem;"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle;margin-right:4px">block</span> Spam</span><div class="class-bar-track" style="flex:1;height:8px;background:var(--gray-100);border-radius:4px;overflow:hidden;margin:0 10px;"><div class="class-bar-fill spam" id="classBar-spam" style="width:0%;height:100%;background:var(--danger);"></div></div><span class="class-count" id="classCount-spam" style="font-size:0.8rem;font-weight:bold;">0</span></div>
             </div>
-            <div class="stat-info">
-              <span class="stat-value" data-count="0">0</span>
-              <span class="stat-label">Emails Sent</span>
+            <button class="btn btn-secondary btn-sm" onclick="App.classifyAll()" style="margin-top:20px; width:100%;">Classify All Domains</button>
+          </div>
+          
+          <div class="bento-card case-funnel-card">
+             <div class="bento-label">CONVERSION FUNNEL</div>
+            <div class="case-funnel-container" id="dashboardFunnelContainer" style="height: 250px;">
+              <!-- Wavy Funnel Generated by JS -->
             </div>
           </div>
         </div>
 
-        <!-- Campaign List -->
         <div class="section-card">
-          <div class="section-header">
-            <h3>Your Campaigns</h3>
-          </div>
+          <div class="section-header"><h3>Your Campaigns</h3></div>
           <div id="campaignList" class="campaign-list">
             <div class="empty-state" id="emptyCampaigns">
-              <div class="empty-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-              </div>
+              <div class="empty-icon"><span class="material-icons-outlined" style="font-size:48px;color:#CBD5E1">folder_open</span></div>
               <p class="empty-title">No campaigns yet</p>
-              <p class="empty-text">Create your first campaign to start scraping and sending emails</p>
+              <p class="empty-text">Create your first campaign to start the revenue engine</p>
               <button class="btn btn-secondary" onclick="App.showNewCampaignModal()">Create Campaign</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Workflow Steps -->
-        <div class="section-card">
-          <div class="section-header">
-            <h3>How It Works</h3>
-          </div>
-          <div class="workflow-steps">
-            <div class="workflow-step">
-              <div class="step-number">1</div>
-              <div class="step-icon">🔗</div>
-              <h4>Add Websites</h4>
-              <p>Paste company website URLs to scan for email addresses</p>
-            </div>
-            <div class="workflow-connector"></div>
-            <div class="workflow-step">
-              <div class="step-number">2</div>
-              <div class="step-icon">🔍</div>
-              <h4>Scrape & Discover</h4>
-              <p>AI scrapes emails and finds decision-makers by role</p>
-            </div>
-            <div class="workflow-connector"></div>
-            <div class="workflow-step">
-              <div class="step-number">3</div>
-              <div class="step-icon">✅</div>
-              <h4>Verify Emails</h4>
-              <p>Check validity via MX & SMTP without sending anything</p>
-            </div>
-            <div class="workflow-connector"></div>
-            <div class="workflow-step">
-              <div class="step-number">4</div>
-              <div class="step-icon">📧</div>
-              <h4>Send Campaign</h4>
-              <p>Send personalized emails with images via your Gmail</p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- ═══ ANALYTICS PAGE (DENSE DASHBOARD) ═══ -->
+      <section class="page" id="page-analytics">
+        <div class="page-header"><div><h2 class="page-title">Revenue Intelligence</h2><p class="page-subtitle">Granular contact-level timeline reporting & predictive trends</p></div></div>
+        
+        <div class="bento-dashboard">
+          
+          <!-- Column 1: Summary & Main Charts -->
+          <div class="bento-col-main">
+            <div class="bento-row wrap">
+              <div class="bento-card summary-card">
+                 <div class="bento-label">Recipients</div>
+                 <div class="bento-val up"><span class="arr">↑</span><span id="bentoTotalRecipients">0</span></div>
+                 <div class="bento-sub">Total enriched & verified contacts in pipeline</div>
+                 <hr/>
+                 <div class="bento-label" style="margin-top:12px;">Active Engagement</div>
+                 <div class="bento-val down"><span class="arr">↓</span><span id="bentoActiveEng">0</span></div>
+                 <div class="bento-sub">Contacts currently opening/clicking</div>
+              </div>
+              
+              <div class="bento-card calendar-card">
+                 <div class="bento-label flex-between"><span>< April 2026 ></span><span class="muted">Month</span></div>
+                 <div class="cal-grid">
+                   <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                   <span class="muted">29</span><span class="muted">30</span><span class="muted">31</span><span>1</span><span>2</span><span>3</span><span>4</span>
+                   <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                   <span>12</span><span>13</span><span class="active-day">14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+                   <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+                   <span>26</span><span class="circle-day">27</span><span class="circle-day">28</span><span>29</span><span>30</span><span class="muted">1</span><span class="muted">2</span>
+                 </div>
+              </div>
+            </div>
+
+            <!-- Big Wavy Double Line Chart (Timelines) -->
+            <div class="bento-card lg">
+               <div class="bento-label flex-between"><span>Open vs Click Timeline</span><span class="chip">All time</span></div>
+               <div class="bento-chart-container" id="wavyLineChartContainer">
+                   <!-- Wavy lines rendered via JS overlaying SVG -->
+               </div>
+            </div>
+
+            <!-- Case Funnel Chart -->
+            <div class="bento-card lg case-funnel-card" style="margin-top: 24px;">
+               <div class="bento-label">CASE FUNNEL</div>
+               <div class="case-funnel-container" id="caseFunnelArea">
+                   <!-- Wavy funnel rendered via JS -->
+               </div>
+            </div>
+
+            <!-- Horizontal Stacked & Horizontal Bars -->
+            <div class="bento-row wrap">
+               <div class="bento-card">
+                  <div class="bento-label">A/B Test Winners</div>
+                  <div class="bars-vertical" id="abTestBars"></div>
+               </div>
+               <div class="bento-card">
+                  <div class="bento-label">Bounce vs Sent</div>
+                  <div id="verticalGroupedBars" style="height:120px; display:flex; align-items:flex-end; gap:8px;"></div>
+               </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Specifics & Funnels -->
+          <div class="bento-col-side">
+            
+            <div class="bento-card">
+              <div class="bento-label">Deliverability</div>
+              <div class="progress-stacked"><div class="fill purple" style="width:70%"></div><div class="fill orange" style="width:20%"></div></div>
+              <div style="margin-top:20px;"></div>
+              <div class="progress-stacked"><div class="fill purple" style="width:40%"></div></div>
+            </div>
+            
+            <div class="bento-card centered">
+               <div class="bento-label left" style="width:100%;">Average CTR</div>
+               <div class="donut-chart">
+                 <svg viewBox="0 0 36 36" class="circular-chart"><path class="circle-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="circle" stroke-dasharray="75, 100" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831"/></svg>
+                 <div class="donut-text" id="bentoCtrVal">75%</div>
+               </div>
+               <button class="btn btn-primary btn-sm mt-3" style="width:100%; border-radius: 20px;">Optimize</button>
+            </div>
+
+            <div class="bento-card row-split">
+               <div>
+                  <div class="bento-label">Pipeline Ratio</div>
+                  <div class="pie-chart-mock">
+                    <svg viewBox="0 0 32 32"><circle r="16" cx="16" cy="16" class="pie-purple"/><circle r="16" cx="16" cy="16" class="pie-orange" stroke-dasharray="30 100"/></svg>
+                  </div>
+               </div>
+               <div class="pie-legend">
+                 <div><span class="dot p"></span> Leaked 70%</div>
+                 <div><span class="dot o"></span> Retained 30%</div>
+               </div>
+            </div>
+
+          </div>
+
+        </div>
+        
+        <div class="section-card mt-4">
+          <div class="section-card mt-4">
+          <div class="section-header"><h3>Deep-Dive Timelines (Recipient Level)</h3></div>
+          <div class="table-wrapper"><table class="data-table" id="deepDiveTable"><thead><tr><th>Recipient</th><th>Last Action</th><th>Open Timeline</th><th>CTR Decay</th></tr></thead><tbody id="deepDiveTableBody"></tbody></table></div>
+        </div>
+      </section>
+
+      <!-- ═══ AUTOMATIONS PAGE ═══ -->
+      <section class="page" id="page-automations">
+         <div class="page-header">
+           <div><h2 class="page-title">Visual Automations</h2><p class="page-subtitle">Trigger-based follow-up sequences and pipeline management</p></div>
+           <button class="btn btn-primary" onclick="App.showNewAutomationModal()"><span class="material-icons-outlined" style="font-size:18px">add</span>Create Workflow</button>
+         </div>
+         <div class="automations-layout" style="display:grid; grid-template-columns: 300px 1fr; gap:20px;">
+           <!-- Sidebar Automations List -->
+           <div class="section-card" id="automationsListSection">
+             <div class="section-header"><h3>Active Workflows</h3></div>
+             <div id="automationsList" style="display:flex; flex-direction:column; gap:10px;">
+                <div class="table-empty"><p>Loading workflows...</p></div>
+             </div>
+           </div>
+           
+           <!-- Vertical Node Builder -->
+           <div class="section-card" id="automationBuilderBg" style="min-height:500px; background:var(--gray-50); position:relative;">
+              <div class="section-header"><h3>Workflow Builder</h3><button class="btn btn-sm btn-primary" onclick="App.saveCurrentAutomation()">Save Flow</button></div>
+              <div class="flow-builder" id="flowBuilder" style="display:flex; flex-direction:column; align-items:center; padding:20px; gap:20px;">
+                 <div class="table-empty"><p>Select or create a workflow</p></div>
+              </div>
+           </div>
+         </div>
+      </section>
+
       <!-- ═══ SCRAPER PAGE ═══ -->
       <section class="page" id="page-scraper">
-        <div class="page-header">
-          <div>
-            <h2 class="page-title">Email Scraper</h2>
-            <p class="page-subtitle">Enter website URLs to extract email addresses and discover contacts</p>
-          </div>
+        <div class="page-header"><div><h2 class="page-title">Email Scraper & AI Discovery</h2><p class="page-subtitle">Manually scrape URLs or let the AI autonomously find targets</p></div></div>
+        
+        <div class="tabs-row" style="display:flex; gap:10px; margin-bottom:20px;">
+           <button class="btn btn-primary" id="tabScraperManual" onclick="App.toggleScraperMode('manual')">
+             <span class="material-icons-outlined" style="font-size:18px">link</span> Manual URLs
+           </button>
+           <button class="btn btn-secondary" id="tabScraperAuto" onclick="App.toggleScraperMode('auto')">
+             <span class="material-icons-outlined" style="font-size:18px">smart_toy</span> Autonomous AI
+           </button>
         </div>
 
         <div class="scraper-layout">
-          <!-- Input Panel -->
-          <div class="section-card">
-            <div class="section-header">
-              <h3>Website URLs</h3>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Select Campaign</label>
-              <select class="form-select" id="scraperCampaignSelect">
-                <option value="">-- Select a campaign --</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Enter URLs (one per line)</label>
-              <textarea class="form-textarea" id="scraperUrls" placeholder="https://example.com&#10;https://company.com&#10;https://startup.io" rows="8"></textarea>
-              <span class="form-hint">We'll scan main page + /about, /contact, /team pages automatically</span>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-primary" id="btnStartScrape" onclick="App.startScraping()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                Start Scraping
-              </button>
-              <button class="btn btn-secondary" id="btnDiscover" onclick="App.startDiscovery()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-                Discover Decision-Makers
-              </button>
-            </div>
+          <!-- MANUAL MODE -->
+          <div class="section-card" id="scraperModeManual">
+            <div class="section-header"><h3>Manual URLs</h3></div>
+            <div class="form-group"><label class="form-label">Select Campaign</label><select class="form-select" id="scraperCampaignSelect"><option value="">-- Select a campaign --</option></select></div>
+            <div class="form-group"><label class="form-label">Enter URLs (one per line)</label><textarea class="form-textarea" id="scraperUrls" placeholder="https://example.com&#10;https://company.com" rows="8"></textarea><span class="form-hint">Scrapes + discovers decision-makers automatically</span></div>
+            <div class="btn-group"><button class="btn btn-primary" id="btnStartScrape" onclick="App.startScrapeAndDiscover()"><span class="material-icons-outlined" style="font-size:18px">search</span>Scrape URLs</button></div>
           </div>
 
-          <!-- Progress/Results Panel -->
-          <div class="section-card">
-            <div class="section-header">
-              <h3>Scraping Log</h3>
-              <div class="progress-indicator" id="scrapeProgress" style="display:none">
-                <div class="spinner"></div>
-                <span>Scraping...</span>
-              </div>
+          <!-- AUTONOMOUS MODE -->
+          <div class="section-card" id="scraperModeAuto" style="display:none; border:2px solid var(--primary);">
+            <div class="section-header"><h3>Autonomous Discovery</h3></div>
+            <div class="form-group"><label class="form-label">Select Campaign</label><select class="form-select" id="autonomousCampaignSelect"><option value="">-- Select a campaign --</option></select></div>
+            
+            <!-- PROMPT FIELD -->
+            <div class="form-group" style="background:linear-gradient(135deg,#EEF2FF,#F5F3FF);padding:16px;border-radius:var(--radius-md);border:1px solid #E0E7FF;">
+              <label class="form-label" style="display:flex;align-items:center;gap:6px;">
+                <span class="material-icons-outlined" style="font-size:18px;color:var(--primary)">auto_awesome</span>
+                Discovery Prompt
+              </label>
+              <textarea class="form-textarea" id="autoPrompt" placeholder="Describe how to find and collect contacts. For example:&#10;&#10;Find marketing agency founders in the US who have a website with less than 50 employees. Look for their CEO, CMO, or VP of Marketing emails. Focus on agencies that offer SEO, PPC, or social media services." rows="5" style="background:white;"></textarea>
+              <span class="form-hint">Describe your ideal contact persona, where to find them, and what data to collect. The AI will use this to guide the discovery.</span>
             </div>
-            <div class="log-output" id="scrapeLog">
-              <div class="log-empty">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                <p>Scraping results will appear here</p>
-              </div>
-            </div>
+
+            <div class="form-group"><label class="form-label">Target Industry</label><input type="text" class="form-input" id="autoIndustry" placeholder="e.g., Real Estate, Healthcare, SaaS"/></div>
+            <div class="form-group"><label class="form-label">Target Role</label><input type="text" class="form-input" id="autoRole" placeholder="e.g., CEO, Founder, VP Marketing"/></div>
+            <div class="form-group"><label class="form-label">Associated Product/Service</label><input type="text" class="form-input" id="autoProduct" placeholder="e.g., CRM Software, Marketing Agency"/></div>
+            <div class="btn-group"><button class="btn btn-primary" id="btnStartAutoScrape" onclick="App.startAutonomousDiscovery()"><span class="material-icons-outlined" style="font-size:18px">rocket_launch</span>Run Autonomous Hunt</button></div>
           </div>
+
+          <div class="section-card"><div class="section-header"><h3>Scraping Log</h3><div class="progress-indicator" id="scrapeProgress" style="display:none"><div class="spinner"></div><span>Processing...</span></div></div><div class="log-output" id="scrapeLog"><div class="log-empty"><span class="material-icons-outlined" style="font-size:40px;color:#64748B">terminal</span><p>Scraping results will appear here</p></div></div></div>
         </div>
       </section>
 
       <!-- ═══ CONTACTS PAGE ═══ -->
       <section class="page" id="page-contacts">
         <div class="page-header">
-          <div>
-            <h2 class="page-title">Contacts</h2>
-            <p class="page-subtitle">Manage your scraped and verified email contacts</p>
-          </div>
+          <div><h2 class="page-title">Contacts</h2><p class="page-subtitle">Manage your scraped and verified email contacts</p></div>
           <div class="btn-group">
-            <button class="btn btn-accent" onclick="App.verifyAll()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              Verify All
-            </button>
-            <button class="btn btn-danger-outline" onclick="App.removeInvalid()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-              Remove Invalid
-            </button>
+            <button class="btn btn-primary" onclick="App.showAddContactModal()"><span class="material-icons-outlined" style="font-size:18px">person_add</span>Add Contact</button>
+            <button class="btn btn-secondary" onclick="App.showCsvUploadModal()"><span class="material-icons-outlined" style="font-size:18px">upload_file</span>Upload CSV</button>
+            <button class="btn btn-accent" onclick="App.classifyAll()"><span class="material-icons-outlined" style="font-size:18px">auto_fix_high</span> Classify</button>
+            <button class="btn btn-accent" onclick="App.verifyAll()"><span class="material-icons-outlined" style="font-size:18px">verified</span>Verify All</button>
+            <button class="btn btn-danger-outline" onclick="App.removeInvalid()"><span class="material-icons-outlined" style="font-size:18px">remove_circle_outline</span>Remove Invalid</button>
+            <button class="btn btn-danger-outline" onclick="App.deleteAllContacts()"><span class="material-icons-outlined" style="font-size:18px">delete_sweep</span>Delete All</button>
           </div>
         </div>
-
-        <!-- Filters -->
-        <div class="filter-bar">
-          <div class="form-group inline">
-            <select class="form-select" id="contactCampaignFilter" onchange="App.loadContacts()">
-              <option value="">All Campaigns</option>
-            </select>
+        <div class="contacts-layout">
+          <div class="folder-panel" id="folderPanel">
+            <h4 class="folder-title"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle;margin-right:4px">folder</span> Campaign Folders</h4>
+            <div class="folder-item active" data-campaign="" onclick="App.selectFolder(this, '')"><span class="material-icons-outlined folder-icon" style="font-size:18px">inventory_2</span><span class="folder-name">All Contacts</span><span class="folder-count" id="folderAll">0</span></div>
+            <div id="folderList"></div>
           </div>
-          <div class="form-group inline">
-            <select class="form-select" id="contactStatusFilter" onchange="App.loadContacts()">
-              <option value="">All Statuses</option>
-              <option value="scraped">Scraped</option>
-              <option value="discovered">Discovered</option>
-              <option value="verified">✅ Verified</option>
-              <option value="invalid">❌ Invalid</option>
-              <option value="sent">📧 Sent</option>
-            </select>
-          </div>
-          <div class="filter-search">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" class="form-input" id="contactSearch" placeholder="Search contacts..." oninput="App.filterContacts()"/>
-          </div>
-        </div>
-
-        <!-- Contact Stats -->
-        <div class="contact-stats" id="contactStats">
-          <div class="mini-stat"><span class="mini-stat-value" id="totalCount">0</span><span class="mini-stat-label">Total</span></div>
-          <div class="mini-stat verified"><span class="mini-stat-value" id="verifiedCount">0</span><span class="mini-stat-label">Verified</span></div>
-          <div class="mini-stat invalid"><span class="mini-stat-value" id="invalidCount">0</span><span class="mini-stat-label">Invalid</span></div>
-          <div class="mini-stat pending"><span class="mini-stat-value" id="pendingCount">0</span><span class="mini-stat-label">Pending</span></div>
-        </div>
-
-        <!-- Verification Progress -->
-        <div class="verification-progress" id="verificationProgress" style="display:none">
-          <div class="progress-bar-container">
-            <div class="progress-bar" id="verifyProgressBar" style="width:0%"></div>
-          </div>
-          <span class="progress-text" id="verifyProgressText">Verifying emails...</span>
-        </div>
-
-        <!-- Contact Table -->
-        <div class="section-card no-padding">
-          <div class="table-wrapper">
-            <table class="data-table" id="contactsTable">
-              <thead>
-                <tr>
-                  <th><input type="checkbox" id="selectAllContacts" onchange="App.toggleSelectAll()"/></th>
-                  <th>Email</th>
-                  <th>Name</th>
-                  <th>Role</th>
-                  <th>Company</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="contactsTableBody">
-                <tr class="empty-row">
-                  <td colspan="7">
-                    <div class="table-empty">
-                      <p>No contacts found. Start by scraping some websites!</p>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="contacts-main">
+            <div class="filter-bar">
+              <div class="form-group inline">
+                <select class="form-select" id="contactStatusFilter" onchange="App.loadContacts()"><option value="">All Statuses</option><option value="scraped">Scraped</option><option value="discovered">Discovered</option><option value="manual">Manual</option><option value="verified">Verified</option><option value="invalid">Invalid</option><option value="sent">Sent</option></select>
+              </div>
+              <div class="form-group inline">
+                <select class="form-select" id="contactClassFilter" onchange="App.loadContacts()"><option value="">All Classes</option><option value="business">Business</option><option value="personal">Personal</option><option value="support">Support</option><option value="spam">Spam</option></select>
+              </div>
+              <div class="filter-search"><span class="material-icons-outlined" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:18px">search</span><input type="text" class="form-input" id="contactSearch" placeholder="Search contacts..." oninput="App.filterContacts()" style="padding-left:36px;"/></div>
+            </div>
+            <div class="contact-stats" id="contactStats">
+              <div class="mini-stat"><span class="mini-stat-value" id="totalCount">0</span><span class="mini-stat-label">Total</span></div>
+              <div class="mini-stat verified"><span class="mini-stat-value" id="verifiedCount">0</span><span class="mini-stat-label">Verified</span></div>
+              <div class="mini-stat invalid"><span class="mini-stat-value" id="invalidCount">0</span><span class="mini-stat-label">Invalid</span></div>
+              <div class="mini-stat pending"><span class="mini-stat-value" id="pendingCount">0</span><span class="mini-stat-label">Pending</span></div>
+            </div>
+            <div class="verification-progress" id="verificationProgress" style="display:none"><div class="progress-bar-container"><div class="progress-bar" id="verifyProgressBar" style="width:0%"></div></div><span class="progress-text" id="verifyProgressText">Verifying...</span></div>
+            <div class="section-card no-padding"><div class="table-wrapper"><table class="data-table" id="contactsTable"><thead><tr><th><input type="checkbox" id="selectAllContacts" onchange="App.toggleSelectAll()"/></th><th>Email</th><th>Name</th><th>Company</th><th>Class</th><th>Score</th><th>Stage</th><th>Status</th><th>Actions</th></tr></thead><tbody id="contactsTableBody"><tr class="empty-row"><td colspan="9"><div class="table-empty"><p>No contacts found. Start by scraping some websites!</p></div></td></tr></tbody></table></div></div>
           </div>
         </div>
       </section>
 
       <!-- ═══ COMPOSER PAGE ═══ -->
       <section class="page" id="page-composer">
-        <div class="page-header">
-          <div>
-            <h2 class="page-title">Email Composer</h2>
-            <p class="page-subtitle">Compose and send personalized emails to your verified contacts</p>
-          </div>
-        </div>
-
+        <div class="page-header"><div><h2 class="page-title">Email Composer</h2><p class="page-subtitle">Build and send personalized emails with AI assistance</p></div></div>
         <div class="composer-layout">
-          <!-- Compose Panel -->
           <div class="section-card composer-panel">
-            <div class="section-header">
-              <h3>Compose Email</h3>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Campaign</label>
-              <select class="form-select" id="composerCampaignSelect" onchange="App.loadComposerRecipients()">
-                <option value="">-- Select a campaign --</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Recipients</label>
-              <div class="recipients-box" id="recipientsBox">
-                <span class="recipients-placeholder">Select a campaign to see verified recipients</span>
+            <div class="section-header"><h3>Compose Email</h3></div>
+            <div class="form-group"><label class="form-label">Load Template</label><div class="template-row"><select class="form-select" id="templateSelect" onchange="App.loadTemplate()"><option value="">-- Start from scratch --</option></select><button class="btn btn-secondary btn-sm" onclick="App.showSaveTemplateModal()">Save</button><button class="btn btn-danger-outline btn-sm" onclick="App.deleteCurrentTemplate()" id="btnDeleteTemplate" style="display:none">Delete</button></div></div>
+            <hr style="border:none;border-top:1px solid var(--gray-100);margin:8px 0 16px;"/>
+            <div class="form-group"><label class="form-label">Campaign</label><select class="form-select" id="composerCampaignSelect" onchange="App.loadComposerRecipients()"><option value="">-- Select a campaign --</option></select></div>
+            <div class="form-group"><label class="form-label">Recipients</label><div class="recipients-box" id="recipientsBox"><span class="recipients-placeholder">Select a campaign to see verified recipients</span></div><span class="form-hint">Only verified emails will receive your message.</span></div>
+            <!-- AI Subject Line Generator -->
+            <div class="form-group"><label class="form-label">Subject Line</label><input type="text" class="form-input" id="emailSubject" placeholder="e.g., Partnership Opportunity with {{company}}"/><div class="ai-suggest-row"><button class="btn btn-ghost btn-sm" onclick="App.generateSubjectLines()"><span class="material-icons-outlined" style="font-size:16px">auto_awesome</span> AI Suggest</button><div class="ai-suggestions" id="subjectSuggestions" style="display:none"></div></div><span class="form-hint">Use {{name}} and {{company}} for personalization</span></div>
+            <!-- AI Copywriter -->
+            <div class="form-group" style="background:linear-gradient(135deg,#EEF2FF,#F5F3FF);padding:14px;border-radius:var(--radius-md);border:1px solid #E0E7FF;">
+              <label class="form-label" style="margin-bottom:4px;display:flex;align-items:center;gap:6px"><span class="material-icons-outlined" style="font-size:18px;color:var(--primary)">psychology</span> AI Copywriter</label>
+              <span class="form-hint" style="margin-bottom:8px;display:block;">Generate email copy based on lifecycle stage and tone.</span>
+              <div class="ai-copy-controls">
+                <select class="form-select" id="aiCopyStage"><option value="lead">Lead</option><option value="prospect">Prospect</option><option value="qualified">Qualified</option><option value="opportunity">Opportunity</option><option value="customer">Customer</option></select>
+                <select class="form-select" id="aiCopyTone"><option value="casual">Casual</option><option value="formal">Formal</option><option value="urgent">Urgent</option></select>
+                <button class="btn btn-primary btn-sm" onclick="App.aiCopywrite()">Generate</button>
               </div>
-              <span class="form-hint">Only verified emails will receive your message</span>
+              <div id="aiCopyResult" style="display:none" class="ai-copy-result"></div>
             </div>
-
-            <div class="form-group">
-              <label class="form-label">Subject Line</label>
-              <input type="text" class="form-input" id="emailSubject" placeholder="e.g., Partnership Opportunity with {{company}}"/>
-              <span class="form-hint">Use {{name}} and {{company}} for personalization</span>
+            <div class="form-group" style="background:#F8FAFC;padding:12px;border-radius:8px;border:1px solid #E2E8F0;margin-bottom:12px;">
+              <label class="form-label" style="display:flex;align-items:center;gap:6px;"><span class="material-icons-outlined" style="font-size:18px;color:var(--primary)">auto_awesome</span> AI Prompt Builder</label>
+              <textarea class="form-textarea" id="aiEmailPrompt" placeholder="Write a prompt to build your email body... (e.g., Write a friendly introduction asking for a 15 min meeting)" rows="2"></textarea>
+              <button class="btn btn-primary btn-sm" style="margin-top:8px;" onclick="App.generateEmailFromPrompt()">Generate Email</button>
             </div>
-
-            <div class="form-group">
-              <label class="form-label">Email Body</label>
-              <div class="rich-editor" id="emailBody" contenteditable="true" placeholder="Write your email here...">
-              </div>
-              <div class="editor-toolbar">
-                <button class="toolbar-btn" onclick="document.execCommand('bold')" title="Bold"><strong>B</strong></button>
-                <button class="toolbar-btn" onclick="document.execCommand('italic')" title="Italic"><em>I</em></button>
-                <button class="toolbar-btn" onclick="document.execCommand('underline')" title="Underline"><u>U</u></button>
-                <span class="toolbar-divider"></span>
-                <button class="toolbar-btn" onclick="App.insertVariable('name')" title="Insert Name">{{name}}</button>
-                <button class="toolbar-btn" onclick="App.insertVariable('company')" title="Insert Company">{{company}}</button>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Attach Image</label>
-              <div class="dropzone" id="imageDropzone" ondrop="App.handleDrop(event)" ondragover="App.handleDragOver(event)" ondragleave="App.handleDragLeave(event)">
-                <input type="file" id="imageInput" accept="image/*" onchange="App.handleImageSelect(event)" style="display:none"/>
-                <div class="dropzone-content" id="dropzoneContent">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                  <p>Drag & drop an image or <button class="link-btn" onclick="document.getElementById('imageInput').click()">browse</button></p>
-                  <span>PNG, JPG, GIF up to 5MB</span>
+            <div class="form-group"><label class="form-label">Email Body — Drag & Drop Builder</label>
+              <div class="block-builder">
+                <div class="block-palette">
+                  <div class="palette-title">Blocks</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'heading')"><span class="palette-icon">H</span> Heading</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'text')"><span class="palette-icon">¶</span> Text</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'image')"><span class="material-icons-outlined palette-icon" style="font-size:16px">image</span> Image</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'button')"><span class="material-icons-outlined palette-icon" style="font-size:16px">smart_button</span> Button</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'link')"><span class="material-icons-outlined palette-icon" style="font-size:16px">link</span> Link</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'svg')"><span class="material-icons-outlined palette-icon" style="font-size:16px">hexagon</span> SVG</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'html')"><span class="material-icons-outlined palette-icon" style="font-size:16px">code</span> HTML</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'divider')"><span class="palette-icon">─</span> Divider</div>
+                  <div class="palette-item" draggable="true" ondragstart="App.dragBlockStart(event, 'spacer')"><span class="material-icons-outlined palette-icon" style="font-size:16px">height</span> Spacer</div>
+                  <div class="palette-vars"><div class="palette-title">Variables</div><button class="var-chip" onclick="App.insertVariableAtCursor('name')">{{name}}</button><button class="var-chip" onclick="App.insertVariableAtCursor('company')">{{company}}</button><button class="var-chip" onclick="App.insertVariableAtCursor('email')">{{email}}</button></div>
                 </div>
-                <div class="dropzone-preview" id="dropzonePreview" style="display:none">
-                  <img id="imagePreviewImg" src="" alt="Preview"/>
-                  <button class="remove-image-btn" onclick="App.removeImage()">✕</button>
+                <div class="builder-canvas" id="builderCanvas" ondragover="App.dragBlockOver(event)" ondrop="App.dropBlock(event)" ondragleave="App.dragBlockLeave(event)">
+                  <div class="rich-text-toolbar" id="richTextToolbar" style="display:none">
+                    <button class="rtt-btn" onclick="document.execCommand('bold')" title="Bold"><b>B</b></button>
+                    <button class="rtt-btn" onclick="document.execCommand('italic')" title="Italic"><i>I</i></button>
+                    <button class="rtt-btn" onclick="document.execCommand('underline')" title="Underline"><u>U</u></button>
+                    <span class="rtt-sep"></span>
+                    <button class="rtt-btn" onclick="document.execCommand('justifyLeft')" title="Align Left"><span class="material-icons-outlined" style="font-size:16px">format_align_left</span></button>
+                    <button class="rtt-btn" onclick="document.execCommand('justifyCenter')" title="Align Center"><span class="material-icons-outlined" style="font-size:16px">format_align_center</span></button>
+                    <button class="rtt-btn" onclick="document.execCommand('justifyRight')" title="Align Right"><span class="material-icons-outlined" style="font-size:16px">format_align_right</span></button>
+                    <span class="rtt-sep"></span>
+                    <button class="rtt-btn" onclick="App.insertLink()" title="Insert Link"><span class="material-icons-outlined" style="font-size:16px">link</span></button>
+                    <button class="rtt-btn" onclick="document.execCommand('removeFormat')"><span class="material-icons-outlined" style="font-size:16px">format_clear</span></button>
+                    <span class="rtt-sep"></span>
+                    <select class="rtt-select" onchange="document.execCommand('fontSize', false, this.value); this.value='';" title="Font Size"><option value="">Size</option><option value="1">Small</option><option value="3">Normal</option><option value="5">Large</option><option value="7">Huge</option></select>
+                    <input type="color" class="rtt-color" value="#000000" onchange="document.execCommand('foreColor', false, this.value)"/>
+                  </div>
+                  <div class="canvas-empty" id="canvasEmpty"><span class="material-icons-outlined" style="font-size:40px;color:#CBD5E1">add_box</span><p>Drag blocks here to build your email</p></div>
                 </div>
               </div>
             </div>
-
+            <input type="hidden" id="emailBody"/>
+            <div class="form-group"><label class="form-label">Attach Image</label><div class="dropzone" id="imageDropzone" ondrop="App.handleDrop(event)" ondragover="App.handleDragOver(event)" ondragleave="App.handleDragLeave(event)"><input type="file" id="imageInput" accept="image/*" onchange="App.handleImageSelect(event)" style="display:none"/><div class="dropzone-content" id="dropzoneContent"><span class="material-icons-outlined" style="font-size:40px;color:#94A3B8">cloud_upload</span><p>Drag & drop an image or <button class="link-btn" onclick="document.getElementById('imageInput').click()">browse</button></p></div><div class="dropzone-preview" id="dropzonePreview" style="display:none"><img id="imagePreviewImg" src="" alt="Preview"/><button class="remove-image-btn" onclick="App.removeImage()"><span class="material-icons-outlined" style="font-size:16px">close</span></button></div></div></div>
+            <div class="form-group" style="background:var(--gray-50);padding:14px;border-radius:var(--radius-md);border:1px dashed var(--border);"><label class="form-label" style="margin-bottom:4px;display:flex;align-items:center;gap:6px"><span class="material-icons-outlined" style="font-size:18px">send</span> Send Test Email</label><div class="template-row"><input type="email" class="form-input" id="testEmailInput" placeholder="your-email@gmail.com"/><button class="btn btn-secondary btn-sm" onclick="App.sendTestEmail()">Send Test</button></div></div>
             <div class="btn-group">
-              <button class="btn btn-primary btn-lg" onclick="App.sendCampaign()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                Send Campaign
-              </button>
-              <button class="btn btn-secondary" onclick="App.previewEmail()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                Preview
-              </button>
+              <button class="btn btn-primary btn-lg" onclick="App.sendCampaign()"><span class="material-icons-outlined" style="font-size:20px">send</span>Send Campaign</button>
+              <button class="btn btn-secondary" onclick="App.previewEmail()"><span class="material-icons-outlined" style="font-size:18px">visibility</span>Preview</button>
             </div>
           </div>
+          <div class="section-card preview-panel"><div class="section-header"><h3>Email Preview</h3></div><div class="email-preview" id="emailPreview"><div class="preview-empty"><span class="material-icons-outlined" style="font-size:48px;color:#CBD5E1">mail_outline</span><p>Click "Preview" to see your email</p></div></div></div>
+        </div>
+        <div class="section-card" id="sendingSection" style="display:none"><div class="section-header"><h3>Sending Progress</h3></div><div class="sending-progress"><div class="progress-bar-container large"><div class="progress-bar sending" id="sendProgressBar" style="width:0%"></div></div><div class="sending-stats"><span class="sending-stat"><span class="dot success"></span> Sent: <strong id="sentSuccessCount">0</strong></span><span class="sending-stat"><span class="dot error"></span> Failed: <strong id="sentFailedCount">0</strong></span><span class="sending-stat"><span class="dot pending"></span> Remaining: <strong id="sentRemainingCount">0</strong></span></div></div><div class="log-output compact" id="sendLog"></div></div>
+      </section>
 
-          <!-- Preview Panel -->
-          <div class="section-card preview-panel">
-            <div class="section-header">
-              <h3>Email Preview</h3>
-            </div>
-            <div class="email-preview" id="emailPreview">
-              <div class="preview-empty">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#CBD5E1" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <p>Click "Preview" to see how your email will look</p>
+      <!-- ═══ TEMPLATES PAGE ═══ -->
+      <section class="page" id="page-templates">
+        <div class="page-header"><div><h2 class="page-title">Template Library</h2><p class="page-subtitle">Pre-built and custom templates for every stage of your outreach</p></div></div>
+        <div class="template-filters">
+          <button class="filter-chip active" onclick="App.filterTemplates(this, '')">All</button>
+          <button class="filter-chip" onclick="App.filterTemplates(this, 'outreach')"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle">track_changes</span> Outreach</button>
+          <button class="filter-chip" onclick="App.filterTemplates(this, 'followup')"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle">replay</span> Follow-up</button>
+          <button class="filter-chip" onclick="App.filterTemplates(this, 'nurture')"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle">eco</span> Nurture</button>
+          <button class="filter-chip" onclick="App.filterTemplates(this, 'conversion')"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle">paid</span> Conversion</button>
+          <button class="filter-chip" onclick="App.filterTemplates(this, 'retention')"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle">handshake</span> Retention</button>
+          <button class="filter-chip" onclick="App.filterTemplates(this, 'custom')"><span class="material-icons-outlined" style="font-size:16px;vertical-align:middle">auto_awesome</span> Custom</button>
+        </div>
+        <div class="template-gallery" id="templateGallery"></div>
+      </section>
+
+      <!-- ═══ CRM PIPELINE PAGE ═══ -->
+      <section class="page" id="page-crm">
+        <div class="page-header">
+          <div><h2 class="page-title">CRM Pipeline</h2><p class="page-subtitle">Manage contact lifecycle stages — Lead → Customer → Retained</p></div>
+          <div class="btn-group">
+            <button class="btn btn-primary btn-sm" onclick="App.scoreAllLeads()"><span class="material-icons-outlined" style="font-size:18px">psychology</span> Score All Leads</button>
+          </div>
+        </div>
+        <div class="pipeline-board" id="pipelineBoard"></div>
+        <!-- Contact Drawer -->
+        <div class="contact-drawer" id="contactDrawer" style="display:none">
+          <div class="drawer-header"><h3 id="drawerTitle">Contact Details</h3><button class="btn btn-ghost" onclick="App.closeDrawer()"><span class="material-icons-outlined">close</span></button></div>
+          <div class="drawer-body" id="drawerBody"></div>
+        </div>
+      </section>
+
+      <!-- ═══ A/B TESTING PAGE ═══ -->
+      <section class="page" id="page-abtesting">
+        <div class="page-header">
+          <div><h2 class="page-title">A/B Testing</h2><p class="page-subtitle">Create experiments, track variants, find what converts</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateABTestModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> New A/B Test</button>
+        </div>
+        <div id="abTestList" class="ab-test-list"></div>
+      </section>
+
+      <!-- ═══ INTELLIGENCE PAGE ═══ -->
+      <section class="page" id="page-intelligence">
+        <div class="page-header"><div><h2 class="page-title">AI Intelligence</h2><p class="page-subtitle">Predictive intent, digital twins, optimal timing & multichannel orchestration</p></div></div>
+        <div class="dashboard-grid-2">
+          <div class="section-card glass-card">
+            <div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:var(--danger);margin-right:4px">local_fire_department</span> Hot Leads — Intent Leaderboard</h3></div>
+            <div id="intentLeaderboard" class="intent-leaderboard"></div>
+          </div>
+          <div class="section-card glass-card">
+            <div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:var(--warning);margin-right:4px">schedule</span> Optimal Send Times</h3></div>
+            <div class="send-time-grid" id="sendTimeGrid"></div>
+          </div>
+        </div>
+        <div class="section-card glass-card">
+          <div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:var(--accent);margin-right:4px">fingerprint</span> Digital Twin Explorer</h3><div class="form-group inline" style="margin:0"><select class="form-select" id="twinContactSelect" onchange="App.loadDigitalTwin()"><option value="">-- Select a contact --</option></select></div></div>
+          <div id="digitalTwinView" class="digital-twin-view">
+            <div class="twin-empty"><p>Select a contact to explore their digital twin profile</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ AUTOMATIONS PAGE ═══ -->
+      <section class="page" id="page-automations">
+        <div class="page-header">
+          <div><h2 class="page-title">Automations</h2><p class="page-subtitle">Build visual workflows and automated multi-channel sequences</p></div>
+          <button class="btn btn-primary" onclick="App.showNewAutomationModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> New Workflow</button>
+        </div>
+        
+        <div id="automationsBuilder" style="display:none; margin-bottom: 20px;">
+          <div class="section-card glass-card" style="padding: 24px; position: relative;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 24px;">
+              <h3 id="builderTitle" style="font-size: 1.2rem; font-weight: 800;">Workflow Builder</h3>
+              <div class="btn-group">
+                <button class="btn btn-secondary" onclick="App.closeAutomationBuilder()">Close</button>
+                <button class="btn btn-primary" onclick="App.saveCurrentAutomation()">Save Workflow</button>
               </div>
             </div>
+            
+            <div id="flowCanvas" style="display:flex; flex-direction:column; align-items:center; gap: 0; padding: 20px; background: var(--gray-50); border-radius: var(--radius-lg); min-height: 400px; border: 1px dashed var(--gray-300);">
+              <!-- Nodes injected here -->
+            </div>
           </div>
         </div>
+        
+        <div class="template-gallery" id="automationsList">
+          <!-- Automation list injected here -->
+        </div>
+      </section>
 
-        <!-- Sending Progress -->
-        <div class="section-card" id="sendingSection" style="display:none">
-          <div class="section-header">
-            <h3>Sending Progress</h3>
-          </div>
-          <div class="sending-progress">
-            <div class="progress-bar-container large">
-              <div class="progress-bar sending" id="sendProgressBar" style="width:0%"></div>
-            </div>
-            <div class="sending-stats">
-              <span class="sending-stat"><span class="dot success"></span> Sent: <strong id="sentSuccessCount">0</strong></span>
-              <span class="sending-stat"><span class="dot error"></span> Failed: <strong id="sentFailedCount">0</strong></span>
-              <span class="sending-stat"><span class="dot pending"></span> Remaining: <strong id="sentRemainingCount">0</strong></span>
-            </div>
-          </div>
-          <div class="log-output compact" id="sendLog"></div>
-        </div>
+      <!-- ═══ HISTORY PAGE ═══ -->
+      <section class="page" id="page-history">
+        <div class="page-header"><div><h2 class="page-title">History</h2><p class="page-subtitle">Complete log of all emails sent and actions taken</p></div></div>
+        <div class="section-card no-padding"><div class="table-wrapper"><table class="data-table" id="historyTable"><thead><tr><th>Timestamp</th><th>Recipient</th><th>Subject</th><th>Campaign</th><th>Status</th></tr></thead><tbody id="historyTableBody"><tr class="empty-row"><td colspan="5"><div class="table-empty"><p>No history yet</p></div></td></tr></tbody></table></div></div>
       </section>
 
       <!-- ═══ SHEETS PAGE ═══ -->
       <section class="page" id="page-sheets">
-        <div class="page-header">
-          <div>
-            <h2 class="page-title">Google Sheets</h2>
-            <p class="page-subtitle">Sync your contacts with Google Sheets</p>
-          </div>
-        </div>
-
+        <div class="page-header"><div><h2 class="page-title">Google Sheets</h2><p class="page-subtitle">Sync your contacts with Google Sheets</p></div></div>
         <div class="sheets-layout">
-          <!-- Connection Card -->
-          <div class="section-card">
-            <div class="section-header">
-              <h3>Google Account</h3>
-            </div>
-            <div class="connection-status" id="sheetsConnectionStatus">
-              <div class="connection-icon disconnected">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-              </div>
-              <div>
-                <h4 id="connectionTitle">Not Connected</h4>
-                <p id="connectionText">Connect your Google account to sync contacts with Sheets</p>
-              </div>
-            </div>
-            <button class="btn btn-google" id="btnConnectGoogle" onclick="App.connectGoogle()">
-              <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-              Connect Google Account
-            </button>
-          </div>
-
-          <!-- Sync Options -->
-          <div class="section-card">
-            <div class="section-header">
-              <h3>Sync Options</h3>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Campaign</label>
-              <select class="form-select" id="sheetsCampaignSelect">
-                <option value="">-- Select a campaign --</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Google Sheet ID</label>
-              <input type="text" class="form-input" id="sheetsId" placeholder="e.g., 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/>
-              <span class="form-hint">Found in the sheet URL: docs.google.com/spreadsheets/d/<strong>[THIS PART]</strong>/edit</span>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-primary" onclick="App.exportToSheets()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                Export to Sheet
-              </button>
-              <button class="btn btn-secondary" onclick="App.importFromSheets()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Import from Sheet
-              </button>
-            </div>
-          </div>
+          <div class="section-card"><div class="section-header"><h3>Google Account</h3></div><div class="connection-status" id="sheetsConnectionStatus"><div class="connection-icon disconnected"><span class="material-icons-outlined" style="font-size:32px">grid_on</span></div><div><h4 id="connectionTitle">Not Connected</h4><p id="connectionText">Connect your Google account</p></div></div><button class="btn btn-google" id="btnConnectGoogle" onclick="App.connectGoogle()"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Connect Google Account</button></div>
+          <div class="section-card"><div class="section-header"><h3>Sync Options</h3></div><div class="form-group"><label class="form-label">Campaign</label><select class="form-select" id="sheetsCampaignSelect"><option value="">-- Select --</option></select></div><div class="form-group"><label class="form-label">Google Sheet ID</label><input type="text" class="form-input" id="sheetsId" placeholder="e.g., 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms"/></div><div class="btn-group"><button class="btn btn-primary" onclick="App.exportToSheets()">Export</button><button class="btn btn-secondary" onclick="App.importFromSheets()">Import</button></div></div>
+          <div class="section-card"><div class="section-header"><h3>Auto-Sync</h3></div><div class="form-group"><label class="form-label">Auto-Sync Sheet ID</label><input type="text" class="form-input" id="syncSheetId" placeholder="Sheet ID for auto-sync"/></div><button class="btn btn-primary" onclick="App.saveSyncSheetId()">Save & Sync Now</button></div>
         </div>
       </section>
 
       <!-- ═══ SETTINGS PAGE ═══ -->
       <section class="page" id="page-settings">
-        <div class="page-header">
-          <div>
-            <h2 class="page-title">Settings</h2>
-            <p class="page-subtitle">Configure your API keys and account settings</p>
+        <div class="page-header"><div><h2 class="page-title">Settings</h2><p class="page-subtitle">Configure your API keys and account settings</p></div></div>
+        <div class="settings-layout">
+          <div class="section-card"><div class="section-header"><h3>Google Cloud Credentials</h3><span class="badge badge-info">Required</span></div><div class="form-group"><label class="form-label">Client ID</label><input type="text" class="form-input" id="settingClientId" placeholder="your-client-id.apps.googleusercontent.com"/></div><div class="form-group"><label class="form-label">Client Secret</label><input type="password" class="form-input" id="settingClientSecret" placeholder="GOCSPX-xxxxx"/></div><div class="form-group"><label class="form-label">Gmail Address</label><input type="email" class="form-input" id="settingGmailUser" placeholder="your-email@gmail.com"/></div></div>
+          <div class="section-card"><div class="section-header"><h3>Hunter.io API</h3><span class="badge badge-optional">Optional</span></div><div class="form-group"><label class="form-label">API Key</label><input type="password" class="form-input" id="settingHunterKey" placeholder="Your Hunter.io API key"/></div></div>
+          <div class="section-card"><div class="section-header"><h3>Email Settings</h3></div><div class="form-group"><label class="form-label">Sender Display Name</label><input type="text" class="form-input" id="settingSenderName" placeholder="e.g., Saurav"/></div><div class="form-group"><label class="form-label">Delay Between Emails (seconds)</label><input type="number" class="form-input" id="settingDelay" value="4" min="2" max="30"/></div></div>
+          <button class="btn btn-primary btn-lg" onclick="App.saveSettings()" id="btnSaveSettings">Save Settings</button>
+        </div>
+      </section>
+
+      <!-- ═══ WHATSAPP PAGE ═══ -->
+      <section class="page" id="page-whatsapp">
+        <div class="page-header"><div><h2 class="page-title">WhatsApp Channel</h2><p class="page-subtitle">Send WhatsApp messages, manage templates, and track delivery</p></div></div>
+        <div class="dashboard-grid-2">
+          <div class="section-card"><div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:#25D366;margin-right:4px">chat</span> Compose Message</h3></div>
+            <div class="form-group"><label class="form-label">Recipient Phone</label><input type="text" class="form-input" id="waPhone" placeholder="+1234567890"/></div>
+            <div class="form-group"><label class="form-label">Message Body</label><textarea class="form-textarea" id="waBody" rows="4" placeholder="Type your WhatsApp message..."></textarea></div>
+            <button class="btn btn-primary" onclick="App.sendWhatsApp()"><span class="material-icons-outlined" style="font-size:18px">send</span>Send WhatsApp</button>
+          </div>
+          <div class="section-card"><div class="section-header"><h3>Message History</h3></div><div id="waMessageList" class="wa-message-list"><div class="table-empty"><p>No messages sent yet</p></div></div></div>
+        </div>
+      </section>
+
+      <!-- ═══ PUSH NOTIFICATIONS PAGE ═══ -->
+      <section class="page" id="page-push">
+        <div class="page-header"><div><h2 class="page-title">Push Notifications</h2><p class="page-subtitle">Web & Mobile push notifications to drive engagement</p></div></div>
+        <div class="dashboard-grid-2">
+          <div class="section-card"><div class="section-header"><h3><span class="material-icons-outlined" style="font-size:20px;vertical-align:middle;color:var(--primary);margin-right:4px">notifications_active</span> Compose Push</h3></div>
+            <div class="form-group"><label class="form-label">Title</label><input type="text" class="form-input" id="pushTitle" placeholder="Notification title"/></div>
+            <div class="form-group"><label class="form-label">Body</label><textarea class="form-textarea" id="pushBody" rows="3" placeholder="Notification message..."></textarea></div>
+            <div class="form-group"><label class="form-label">Click URL</label><input type="text" class="form-input" id="pushUrl" placeholder="https://yoursite.com/offer"/></div>
+            <div class="btn-group"><button class="btn btn-primary" onclick="App.sendWebPush()">Send Web Push</button><button class="btn btn-secondary" onclick="App.sendMobilePush()">Send Mobile Push</button></div>
+          </div>
+          <div class="section-card"><div class="section-header"><h3>Channel Stats</h3></div><div id="pushStats" class="bento-grid" style="grid-template-columns:1fr 1fr;margin-top:16px;"></div></div>
+        </div>
+      </section>
+
+      <!-- ═══ POPUPS PAGE ═══ -->
+      <section class="page" id="page-popups">
+        <div class="page-header"><div><h2 class="page-title">Popup Builder</h2><p class="page-subtitle">Create targeted popups with exit-intent, scroll, and time-delay triggers</p></div>
+          <button class="btn btn-primary" onclick="App.showCreatePopupModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Create Popup</button>
+        </div>
+        <div id="popupsList" class="template-gallery"></div>
+      </section>
+
+      <!-- ═══ AI SEGMENTS PAGE ═══ -->
+      <section class="page" id="page-segments">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--primary);margin-right:4px">hub</span> AI Segmentation</h2><p class="page-subtitle">Let Aura AI suggest audience groups based on behaviour and attributes</p></div>
+          <div class="btn-group"><button class="btn btn-primary" onclick="App.aiSuggestSegments()"><span class="material-icons-outlined" style="font-size:18px">auto_awesome</span> AI Suggest Segments</button><button class="btn btn-secondary" onclick="App.showCreateSegmentModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Manual Segment</button></div>
+        </div>
+        <div id="segmentsList"></div>
+      </section>
+
+      <!-- ═══ CONTACT SCORING PAGE ═══ -->
+      <section class="page" id="page-scoring">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--accent);margin-right:4px">speed</span> Contact Scoring</h2><p class="page-subtitle">RFM, CLV, engagement & behavioral scores to trigger automations</p></div>
+          <button class="btn btn-primary" onclick="App.computeAllScores()"><span class="material-icons-outlined" style="font-size:18px">calculate</span> Score All Contacts</button>
+        </div>
+        <div class="bento-grid" style="grid-template-columns:repeat(4,1fr);margin-top:24px;" id="scoringStats"></div>
+        <div class="section-card" style="margin-top:24px;"><div class="section-header"><h3>Scored Contacts</h3></div><div id="scoringTable"></div></div>
+      </section>
+
+      <!-- ═══ AI ANALYST PAGE ═══ -->
+      <section class="page" id="page-analyst">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--primary);margin-right:4px">auto_awesome</span> Aura AI Data Analyst</h2><p class="page-subtitle">Ask plain-language questions and get instant answers from your data</p></div></div>
+        <div class="section-card glass-card" style="max-width:800px;">
+          <div class="ai-chat-container" id="aiChatContainer">
+            <div class="ai-chat-messages" id="aiChatMessages">
+              <div class="ai-msg bot"><div class="ai-msg-avatar"><span class="material-icons-outlined">auto_awesome</span></div><div class="ai-msg-bubble"><p>Hi! I'm Aura, your AI data analyst. Ask me anything about your contacts, campaigns, and performance. Try: <em>"What's my open rate?"</em></p></div></div>
+            </div>
+            <div class="ai-chat-suggestions" id="aiChatSuggestions"></div>
+            <div class="ai-chat-input"><input type="text" class="form-input" id="aiQueryInput" placeholder="Ask a question about your data..." onkeydown="if(event.key==='Enter')App.askAnalyst()"/><button class="btn btn-primary" onclick="App.askAnalyst()"><span class="material-icons-outlined" style="font-size:18px">send</span></button></div>
           </div>
         </div>
+      </section>
 
-        <div class="settings-layout">
+      <!-- ═══ PRODUCTS PAGE ═══ -->
+      <section class="page" id="page-products">
+        <div class="page-header"><div><h2 class="page-title">Products & Recommendations</h2><p class="page-subtitle">Manage catalog, AI recommendations, and back-in-stock alerts</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateProductModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Add Product</button>
+        </div>
+        <div id="productsList" class="template-gallery"></div>
+      </section>
+
+      <!-- â•â•â• RECOMMENDATIONS PAGE â•â•â• -->
+      <section class="page" id="page-recommendations">
+        <div class="page-header"><div><h2 class="page-title">AI Product Recommendations</h2><p class="page-subtitle">Match products to contacts using behavior, scores, and catalog signals</p></div></div>
+        <div class="dashboard-grid-2">
           <div class="section-card">
-            <div class="section-header">
-              <h3>Google Cloud Credentials</h3>
-              <span class="badge badge-info">Required</span>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Client ID</label>
-              <input type="text" class="form-input" id="settingClientId" placeholder="your-client-id.apps.googleusercontent.com"/>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Client Secret</label>
-              <input type="password" class="form-input" id="settingClientSecret" placeholder="GOCSPX-xxxxx"/>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Gmail Address</label>
-              <input type="email" class="form-input" id="settingGmailUser" placeholder="your-email@gmail.com"/>
-            </div>
-            <div class="setup-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-              <span>Need help? Check the <a href="#" onclick="App.showSetupGuide()">Setup Guide</a></span>
-            </div>
+            <div class="section-header"><h3>Recommendation Workspace</h3></div>
+            <div class="form-group"><label class="form-label">Contact</label><select class="form-select" id="recContactSelect" onchange="App.loadRecommendationsForContact(this.value)"></select></div>
+            <div id="recommendationsList" class="template-gallery" style="grid-template-columns:1fr;margin-top:16px;"></div>
           </div>
-
           <div class="section-card">
-            <div class="section-header">
-              <h3>Hunter.io API</h3>
-              <span class="badge badge-optional">Optional</span>
-            </div>
-            <div class="form-group">
-              <label class="form-label">API Key</label>
-              <input type="password" class="form-input" id="settingHunterKey" placeholder="Your Hunter.io API key"/>
-              <span class="form-hint">Free tier: 25 searches/month. Get yours at <a href="https://hunter.io" target="_blank">hunter.io</a></span>
-            </div>
+            <div class="section-header"><h3>Back-in-Stock Alerts</h3></div>
+            <div id="stockAlertsList"></div>
           </div>
+        </div>
+      </section>
 
-          <div class="section-card">
-            <div class="section-header">
-              <h3>Email Settings</h3>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Sender Display Name</label>
-              <input type="text" class="form-input" id="settingSenderName" placeholder="e.g., Saurav"/>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Delay Between Emails (seconds)</label>
-              <input type="number" class="form-input" id="settingDelay" value="4" min="2" max="30"/>
-              <span class="form-hint">Recommended: 3-5 seconds to avoid Gmail rate limits</span>
-            </div>
+      <!-- ═══ COUPONS PAGE ═══ -->
+      <section class="page" id="page-coupons">
+        <div class="page-header"><div><h2 class="page-title">Coupon Engine</h2><p class="page-subtitle">Create, distribute, and track discount codes</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateCouponModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Create Coupon</button>
+        </div>
+        <div id="couponsList" class="template-gallery"></div>
+      </section>
+
+      <!-- ═══ LOYALTY PAGE ═══ -->
+      <section class="page" id="page-loyalty">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:#FFD700;margin-right:4px">stars</span> Loyalty Program</h2><p class="page-subtitle">Points, tiers, and rewards to boost retention and LTV</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateRewardModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Create Reward</button>
+        </div>
+        <div class="bento-grid" style="grid-template-columns:repeat(4,1fr);margin-top:24px;" id="loyaltyStats"></div>
+        <div class="dashboard-grid-2" style="margin-top:24px;">
+          <div class="section-card"><div class="section-header"><h3>Rewards Catalog</h3></div><div id="rewardsList"></div></div>
+          <div class="section-card"><div class="section-header"><h3>Loyalty Members</h3></div><div id="loyaltyMembers"></div></div>
+        </div>
+      </section>
+
+      <!-- ═══ WALLET PAGE ═══ -->
+      <section class="page" id="page-wallet">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--primary);margin-right:4px">account_balance_wallet</span> Mobile Wallet</h2><p class="page-subtitle">Digitize loyalty cards, vouchers, tickets — send wallet notifications</p></div>
+          <button class="btn btn-primary" onclick="App.showCreatePassModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Create Pass</button>
+        </div>
+        <div class="bento-grid" style="grid-template-columns:repeat(4,1fr);margin-top:24px;" id="walletStats"></div>
+        <div id="walletPasses" class="template-gallery" style="margin-top:24px;"></div>
+      </section>
+
+      <!-- ═══ USERS & SEATS PAGE ═══ -->
+      <section class="page" id="page-users">
+        <div class="page-header"><div><h2 class="page-title">Users & Seats</h2><p class="page-subtitle">Multi-user access — 10 seats included with role-based permissions</p></div>
+          <button class="btn btn-primary" onclick="App.showInviteUserModal()"><span class="material-icons-outlined" style="font-size:18px">person_add</span> Invite User</button>
+        </div>
+        <div class="bento-grid" style="grid-template-columns:repeat(3,1fr);margin-top:24px;" id="seatInfo"></div>
+        <div class="section-card" style="margin-top:24px;"><div class="section-header"><h3>Team Members</h3></div><div id="usersList"></div></div>
+      </section>
+
+      <!-- ═══ MULTI-ACCOUNT PAGE ═══ -->
+      <section class="page" id="page-accounts">
+        <div class="page-header"><div><h2 class="page-title">Multi-Account Management</h2><p class="page-subtitle">Manage multiple business units & brands under one master account</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateAccountModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Add Account</button>
+        </div>
+        <div id="accountsList" class="template-gallery" style="margin-top:24px;"></div>
+      </section>
+
+      <!-- ═══ CUSTOM OBJECTS PAGE ═══ -->
+      <section class="page" id="page-custom-objects">
+        <div class="page-header"><div><h2 class="page-title">Custom Objects</h2><p class="page-subtitle">Import unique data — subscription dates, store locations, and more</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateCustomObjectModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> New Object</button>
+        </div>
+        <div id="customObjectsList" class="template-gallery" style="margin-top:24px;"></div>
+      </section>
+
+      <!-- ═══ INTEGRATIONS PAGE ═══ -->
+      <section class="page" id="page-integrations">
+        <div class="page-header"><div><h2 class="page-title">Custom Data Integrations</h2><p class="page-subtitle">Sync customer data across warehouse, POS, ERP via direct connectors or SFTP</p></div>
+          <button class="btn btn-primary" onclick="App.showCreateIntegrationModal()"><span class="material-icons-outlined" style="font-size:18px">add</span> Add Integration</button>
+        </div>
+        <div id="integrationsList" class="template-gallery" style="margin-top:24px;"></div>
+      </section>
+
+      <!-- ═══ SSO & SAML PAGE ═══ -->
+      <section class="page" id="page-sso">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--primary);margin-right:4px">vpn_key</span> SSO & SAML</h2><p class="page-subtitle">Enterprise-grade single sign-on for centralized access management</p></div></div>
+        <div class="section-card" style="max-width:700px;">
+          <div class="section-header"><h3>SAML 2.0 Configuration</h3></div>
+          <div class="form-group"><label class="form-label">Identity Provider (IdP)</label><select class="form-select" id="ssoProvider"><option value="custom">Custom SAML</option><option value="okta">Okta</option><option value="azure">Azure AD</option><option value="google">Google Workspace</option><option value="onelogin">OneLogin</option></select></div>
+          <div class="form-group"><label class="form-label">Entity ID</label><input type="text" class="form-input" id="ssoEntityId" placeholder="https://your-idp.com/entity-id"/></div>
+          <div class="form-group"><label class="form-label">SSO Login URL</label><input type="text" class="form-input" id="ssoLoginUrl" placeholder="https://your-idp.com/sso/saml"/></div>
+          <div class="form-group"><label class="form-label">X.509 Certificate</label><textarea class="form-textarea" id="ssoCert" rows="4" placeholder="-----BEGIN CERTIFICATE-----"></textarea></div>
+          <div class="form-group"><label class="form-label">Allowed Email Domains (comma-separated)</label><input type="text" class="form-input" id="ssoDomains" placeholder="company.com, corp.com"/></div>
+          <div class="form-group"><label class="form-label">Default Role for SSO Users</label><select class="form-select" id="ssoDefaultRole"><option value="viewer">Viewer</option><option value="editor">Editor</option><option value="admin">Admin</option></select></div>
+          <button class="btn btn-primary btn-lg" onclick="App.saveSSOConfig()">Save SSO Configuration</button>
+        </div>
+      </section>
+
+      <!-- ═══ DEDICATED IP PAGE ═══ -->
+      <section class="page" id="page-dedicated-ip">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--accent);margin-right:4px">dns</span> Dedicated IP</h2><p class="page-subtitle">Full control of your sending reputation with a dedicated IP address</p></div></div>
+        <div class="dashboard-grid-2">
+          <div class="section-card"><div class="section-header"><h3>IP Configuration</h3></div><div id="dedicatedIpInfo"></div></div>
+          <div class="section-card"><div class="section-header"><h3>IP Warmup Progress</h3></div><div id="ipWarmupProgress"></div></div>
+        </div>
+      </section>
+
+      <!-- ═══ ONBOARDING PAGE ═══ -->
+      <section class="page" id="page-onboarding">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--primary);margin-right:4px">rocket_launch</span> Tailored Onboarding</h2><p class="page-subtitle">Personalized setup support, training, integration assistance & strategic guidance</p></div></div>
+        <div class="onboarding-steps" id="onboardingSteps"></div>
+      </section>
+
+      <!-- ═══ SUPPORT PAGE ═══ -->
+      <section class="page" id="page-support">
+        <div class="page-header"><div><h2 class="page-title"><span class="material-icons-outlined" style="font-size:24px;vertical-align:middle;color:var(--success);margin-right:4px">support_agent</span> Support Center</h2><p class="page-subtitle">Phone support, deliverability specialist, and CSM support</p></div></div>
+        <div class="dashboard-grid-2" style="margin-top:24px;">
+          <div class="section-card glass-card" style="text-align:center;padding:40px;">
+            <span class="material-icons-outlined" style="font-size:48px;color:var(--primary)">phone_in_talk</span>
+            <h3 style="margin-top:16px;">Phone Support</h3>
+            <p style="color:var(--text-muted)">Speak directly with our team when you need a faster resolution</p>
+            <p style="font-size:1.5rem;font-weight:700;margin-top:12px;">+1 (800) 555-0199</p>
+            <p style="color:var(--text-muted);font-size:0.85rem;">Mon-Fri, 9am-6pm EST</p>
           </div>
-
-          <button class="btn btn-primary btn-lg" onclick="App.saveSettings()" id="btnSaveSettings">
-            Save Settings
-          </button>
+          <div class="section-card glass-card" style="text-align:center;padding:40px;">
+            <span class="material-icons-outlined" style="font-size:48px;color:var(--accent)">mark_email_read</span>
+            <h3 style="margin-top:16px;">Deliverability Specialist</h3>
+            <p style="color:var(--text-muted)">Expert guidance on inbox placement, domain reputation, and authentication</p>
+            <button class="btn btn-primary" style="margin-top:16px;">Request Consultation</button>
+          </div>
+          <div class="section-card glass-card" style="text-align:center;padding:40px;">
+            <span class="material-icons-outlined" style="font-size:48px;color:#FFD700">person</span>
+            <h3 style="margin-top:16px;">Customer Success Manager</h3>
+            <p style="color:var(--text-muted)">Your dedicated CSM for strategic guidance and account optimization</p>
+            <button class="btn btn-secondary" style="margin-top:16px;">Schedule a Call</button>
+          </div>
+          <div class="section-card glass-card" style="text-align:center;padding:40px;">
+            <span class="material-icons-outlined" style="font-size:48px;color:var(--success)">school</span>
+            <h3 style="margin-top:16px;">Tailored Onboarding</h3>
+            <p style="color:var(--text-muted)">Personalized setup, hands-on training, integration assistance</p>
+            <button class="btn btn-secondary" style="margin-top:16px;" onclick="window.location.hash='#onboarding'">Start Onboarding →</button>
+          </div>
         </div>
       </section>
 
@@ -560,10 +902,7 @@
   <!-- ─── MODALS ─────────────────────────────────────────── -->
   <div class="modal-overlay" id="modalOverlay" onclick="App.closeModal()">
     <div class="modal" onclick="event.stopPropagation()">
-      <div class="modal-header">
-        <h3 id="modalTitle">Modal</h3>
-        <button class="modal-close" onclick="App.closeModal()">&times;</button>
-      </div>
+      <div class="modal-header"><h3 id="modalTitle">Modal</h3><button class="modal-close" onclick="App.closeModal()"><span class="material-icons-outlined">close</span></button></div>
       <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
@@ -572,5 +911,6 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <script src="/js/app.js"></script>
+  <script src="/js/app3.js"></script>
 </body>
 </html>
