@@ -95,3 +95,39 @@ Open **http://localhost:3000** in your browser.
 ## 📄 License
 
 Private — All rights reserved.
+
+---
+
+# MailForge — 4-Feature Implementation Plan
+
+## 1. Move API Integrations (WhatsApp, etc.) Under Settings Tab
+- **What:** Remove sidebar nav items for WhatsApp, Push, Popups, Integrations, SSO, Dedicated IP
+- **How:** Add tabbed sub-sections inside the Settings page with tabs for General, Channels (WhatsApp/Push/Popups), Integrations, SSO, Dedicated IP
+- **Files:** `index.html` (sidebar + settings page), `app.js` (router), `app3.js` (settings tab logic)
+
+## 2. Email Composer — Full Image Support
+- **What:** Drag & drop, copy/paste, upload image directly into the email body builder
+- **How:** Enhance the `image` block in the composer to support:
+  - File upload (click to browse)
+  - Drag & drop image files onto the image block placeholder
+  - Clipboard paste (Ctrl+V) of images
+  - All images get uploaded to `/api/upload` and the returned URL is used
+- **Files:** `app2.js` (composer block logic), `index.html` (image block area)
+
+## 3. AI Segments — View Segmented Contacts
+- **What:** Click on a segment to see the list of contacts that match its criteria
+- **How:** Add "View Contacts" button on each segment card, which calls a new API endpoint that evaluates contacts against segment rules and shows them in a modal/drawer
+- **Files:** `app3.js` (segment UI), `server.js` (new endpoint), `ai-segmentation.js` (filter logic)
+
+## 4. Automation Workflow Builder — Visual Node Builder (like reference image)
+- **What:** Complete redesign of the workflow builder to match the reference screenshot
+- **Key features:** 
+  - Trigger node (starting point) with colored header
+  - Action nodes ("Do This") 
+  - Condition nodes (If/Else with true/false branches)
+  - "+" button between nodes to add steps (New Step, If/Else, End)
+  - Right-side panel for editing selected node properties
+  - Publish/Draft status banner
+  - Zoom controls, Refresh/Delete block buttons
+  - Connector lines between nodes
+- **Files:** `app2.js` (builder logic), `index.html` (automations page), `styles.css` (workflow CSS)
